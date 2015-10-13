@@ -22,15 +22,28 @@ describe Scrabble do
         expect(Scrabble::Scrabble.score("X")).to eq 8
         expect(Scrabble::Scrabble.score("Z")).to eq 10
       end
-
-      it "returns a number when given a String argument" do
-        expect(Scrabble::Scrabble.score(@word)).to be > 0
-      end
       it "returns nil when given an empty String" do
         expect(Scrabble::Scrabble.score("")).to be_nil
       end
       it "does not accept non-string arguments" do
         expect(Scrabble::Scrabble.score(4)).to be_nil
+      end
+      it "returns the correct point value when given a String argument" do
+        expect(Scrabble::Scrabble.score("dog")).to eq 5
+        expect(Scrabble::Scrabble.score("friend")).to eq 10
+        expect(Scrabble::Scrabble.score("haiku")).to eq 12
+      end
+
+      it "returns the correct bonus point value when given a 7-letter word" do
+        expect(Scrabble::Scrabble.score("holiday")).to eq 64
+        expect(Scrabble::Scrabble.score("quality")).to eq 69
+      end
+
+      it "returns the correct point value when there are capital letters" do
+        expect(Scrabble::Scrabble.score("dOG")).to eq 5
+        expect(Scrabble::Scrabble.score("FrienD")).to eq 10
+        expect(Scrabble::Scrabble.score("hoLIDay")).to eq 64
+        expect(Scrabble::Scrabble.score("QUALITY")).to eq 69
       end
 
     end

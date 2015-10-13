@@ -28,14 +28,20 @@ module Scrabble
        "j" => 8,
        "x" => 8,
        "q" => 10,
-       "z" => 10
+       "z" => 10,
+       " " => 0
     }
 
     def self.score(word)
-      if word.class != String
+      score = 0
+      if word.class != String || word == ""
         return nil
       end
-      return SCORE_HASH[word.downcase]
+      word.downcase.strip.each_char do |letter|
+        score += SCORE_HASH[letter]
+      end
+      score += 50 if word.length == 7
+      return score
     end
 
   end
