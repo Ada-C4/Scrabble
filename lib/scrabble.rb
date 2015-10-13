@@ -43,5 +43,7 @@ class Scrabble
   end
 
   def highest_score_from(array_of_words)
+    sorted_array = array_of_words.sort_by {|word| score(word)}
+    return sorted_array[-1]
   end
 end

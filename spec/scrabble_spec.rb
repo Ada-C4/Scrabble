@@ -29,7 +29,11 @@ describe Scrabble do
     it "adds new words to player_words array" do
       @scrabble.score(@guess_word)
       #@scrabble.score(@guess_word2)
-      expect(@player_words).to eq [@guess_word]
+      expect(@scrabble.player_words).to eql [@guess_word]
     end
+  end
+
+  describe "#highest_score_from" do
+    it "returns word from array with the highest score"
   end
 end
