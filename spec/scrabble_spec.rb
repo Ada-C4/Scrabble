@@ -11,9 +11,11 @@ describe Scrabble do
     end
   end
 
+
   describe "#score" do
     before :each do
       @guess_word = "rabbit"
+      @guess_word2 = "snake"
     end
 
     it "returns a numeric score" do
@@ -22,6 +24,12 @@ describe Scrabble do
 
     it "accepts strings as input" do
       #expect(@scrabble.score(nil))
+    end
+
+    it "adds new words to player_words array" do
+      @scrabble.score(@guess_word)
+      #@scrabble.score(@guess_word2)
+      expect(@player_words).to eq [@guess_word]
     end
   end
 end

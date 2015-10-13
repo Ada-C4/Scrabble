@@ -10,7 +10,15 @@
 # end
 
 class Scrabble
+  attr_accessor :player_words, :score
+  def initialize
+    @player_words = []
+  end
+
   def score(word)
+    #if !@player_words.include?(word)
+    @player_words.push(word)
+    #end
     @score = 0
     word.length.times do |index|
       case word[index].upcase
