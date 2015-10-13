@@ -7,11 +7,22 @@ module Scrabble
 
   class Scrabble
     def self.score(word)
-      #create variable for word score
-      #split word into array of characters - downcased
-      #convert letters to symbols
-      #look up score for each symbol and add it to word score variable
-      #return word score variable
+      #sanitize input
+      if word.is_a? String
+        #create variable for word score
+        word_score = 0
+        #split word into array of characters - downcased
+        word_array = word.downcase.split("")
+        #convert letters to symbols
+        #look up score for each symbol and add it to word score variable
+        word_array.each do |letter|
+          word_score += SCORES[letter.to_sym]
+        end
+        #return word score variable
+        return word_score
+      else
+        return "Error message"
+      end
     end
 
     def self.highest_score_from(array_of_words)
