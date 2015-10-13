@@ -1,4 +1,5 @@
+module Scrabble
+  class Scrabble
 
-class Scrabble
-  
+  end
 end
