@@ -34,6 +34,17 @@ describe Scrabble do
       end
     end
 
+    describe "#total_score" do
+      before :each do
+        @player.play("hello")
+        @player.play("dog")
+        @player.play("white")
+        @player.play("brown")
+      end
+      it "Sums up and returns the score of the players words" do
+        expect(@player.total_score).to eq(34)
+      end
+    end
 
 
 

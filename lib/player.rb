@@ -10,9 +10,7 @@ module Scrabble
 
     def play(word)
       @plays.push(word)
-      # will need to return false if player has won
     end
-
 
 
 
