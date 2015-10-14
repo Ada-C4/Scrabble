@@ -28,5 +28,12 @@ module Scrabble
       end
     end
 
+    def highest_scoring_word
+      return Scrabble.highest_score_from(@plays)
+    end
+
+    def highest_word_score
+      return Scrabble.score(highest_scoring_word)
+    end
   end
 end
