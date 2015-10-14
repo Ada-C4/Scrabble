@@ -1,6 +1,8 @@
+require 'pry'
+
 module Scrabble
 
-  class Scrabblegame
+  class ScrabbleGame
 
     def self.score(word)
       value = Hash.new
@@ -35,12 +37,25 @@ module Scrabble
 
       word_score = 0
 
-      letters.each do |n|
-        word_score += value[n]
-      end
+      letters.each do |letter|
+        word_score += value[letter]
+          end
+
+      letter_length = letters.length
+          if letter_length == 8
+          word_score += 50
+          end
+
+      # if letters.length = 8
+      #   word_score += 50
+      # end
 
       return word_score
     end
+
+# newgame = self.new
+#
+# newgame.selscore("cat")
 
   end
 end

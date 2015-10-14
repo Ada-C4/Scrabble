@@ -1,10 +1,15 @@
 require "./lib/score.rb"
 
-# describe Word do
+describe "ScrabbleGame" do
+  before :each do
+    @scrabble = ScrabbleGame.new
+
+  end
+end
 # @word = Scrabblegame.new
 # end
 
-describe "#word_string" do
+describe "#word as parameter" do
   it "checks if the input is a string" do
     word = "test"
     #.to be String/Fixnum
@@ -25,4 +30,15 @@ describe "score" do
     word = "cat"
     expect(Scrabble::Scrabblegame::score(word)).to eq 5
   end
+  it "checks the value of nothing" do
+    word = ""
+    expect(Scrabble::Scrabblegame::score(word)).to eq 0
+  end
 end
+
+# describe "check length of word" do
+#   it "checks if the word is 8 letters long" do
+#     word = "quizzing"
+#     expect(Scrabble:Scrabblegame::
+#   end
+# end
