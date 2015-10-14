@@ -1,4 +1,4 @@
-require "./lib/score.rb"
+  require "./lib/score.rb"
 
 # describe Word do
 # @word = Scrabblegame.new
