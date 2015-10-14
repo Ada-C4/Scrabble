@@ -21,5 +21,17 @@ module Scrabble
       end
       return score
     end
+    def self.create_word_score_hash(array_of_words)
+      word_score_hash = Hash.new
+      array_of_words.each do |word|
+        word_score_hash[word] = self.score(word)
+      end
+      return word_score_hash
+    end
+    def self.highest_word(array_of_words)
+      self.create_word_score_hash(array_of_words).max_by do |k, v|
+        v
+      end
+    end
   end
 end
