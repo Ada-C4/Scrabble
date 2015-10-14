@@ -4,10 +4,11 @@ describe Scrabble::Player do
   before :each do
     @player1 = Scrabble::Player.new("bob")
     @player2 = Scrabble::Player.new("andre")
-
+    @player3 = Scrabble::Player.new("batman")
     @player2.play("love") # love = 7
     @player2.play("toast") # toast = 5
     @player2.play("hand") # hand = 8
+
   end
 
   describe ".new" do
@@ -44,6 +45,17 @@ describe Scrabble::Player do
   describe "#total_score" do
     it "sums up and returns the score of the players words" do
       expect(@player2.total_score).to eq 20
+    end
+  end
+
+  describe "#won?" do
+    it "returns true if player has over 100 points" do
+      @player3.total = 101
+      expect(@player3.won?).to eq true
+    end
+
+    it "returns false if player does not have over 100 points" do
+
     end
   end
 

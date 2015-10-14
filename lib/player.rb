@@ -1,6 +1,7 @@
 module Scrabble
   class Player
-    attr_reader :name, :plays, :total
+    attr_reader :name, :plays
+    attr_accessor :total
     def initialize(name)
       @name = name
       @plays = []
@@ -16,6 +17,14 @@ module Scrabble
         @total += Scrabble.score(word)
       end
       return @total
+    end
+
+    def won?
+      if @total > 100
+        true
+      else
+        false
+      end
     end
 
   end
