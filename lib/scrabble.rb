@@ -61,10 +61,6 @@ module Scrabble
         end
       end
 
-      if winners.length == 1
-        return winners[0]
-      end
-
       winners.sort_by! do |word|
         word.length
       end
