@@ -23,13 +23,16 @@ describe Scrabble::Scrabble do
     it "gives value of 3 to select letters" do
       expect(Scrabble::Scrabble.letter_value("M")).to eq 3
     end
+    it "gives value of 4 to select letters" do
+      expect(Scrabble::Scrabble.letter_value("V")).to eq 4
+    end
     it "gives value of 10 to select letters" do
       expect(Scrabble::Scrabble.letter_value("Z")).to eq 10
     end
   end
 
   describe ".score" do
-    
+
   end
 
 end
