@@ -7,8 +7,11 @@ module Scrabble
       @plays = []
     end
     def play(word)
-      @plays.push(word)
-      # Returns false if player has already won
+      if won?
+        return false
+      else
+        @plays.push(word)
+      end
     end
     def total_score
       total = 0
@@ -17,6 +20,13 @@ module Scrabble
         total += score
       end
       return total
+    end
+    def won?
+      if total_score > 100
+        true
+      else
+        false
+      end
     end
   end
 end
