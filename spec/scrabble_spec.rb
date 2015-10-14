@@ -18,11 +18,16 @@ describe Scrabble do
       @guess_word3 = "it"
       @guess_word_long = "dragons"
       @guess_word_number = "169"
+      @guess_word_integer = 169
       @array = [@guess_word3, @guess_word2, @guess_word]
     end
 
+    it "checks if the input is a string" do
+      expect { Scrabble.score(@guess_word_integer) }.to raise_error (ArgumentError)
+    end
+
     it "checks input is alphabetical" do
-      expect{Scrabble.score(@guess_word_number)}.to raise_error (ArgumentError)
+      expect { Scrabble.score(@guess_word_number) }.to raise_error (ArgumentError)
     end
 
     it "returns a numeric score" do
