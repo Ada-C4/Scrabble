@@ -39,6 +39,12 @@ module Scrabble
       return word_score
     end
 
+    def self.highest_score_from(array_of_words)
+      max_score = array_of_words.max_by do |word|
+        self.score(word)
+      end
+    end
+
 
   end
 end

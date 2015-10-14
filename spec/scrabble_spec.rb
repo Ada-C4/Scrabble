@@ -29,4 +29,9 @@ describe Scrabble do
       expect(Scrabble::Scrabble.score("word")).to eq 8
     end
   end
+  describe "self.highest_score_from(array_of_words)" do
+    it "returns word with highest score" do
+      expect(Scrabble::Scrabble.highest_score_from(["cat","word"])).to eq "word"
+    end
+  end
 end
