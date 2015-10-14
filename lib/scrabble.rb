@@ -7,6 +7,11 @@ class Scrabble
   end
 
   def self.score(word)
+    word.length.times do |letter|
+      if !("a".."z").to_a.include? word[letter]
+        raise ArgumentError, "Input must be an alphabetical string"
+      end
+    end
 
     @score = 0
     if word.length == 7
