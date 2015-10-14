@@ -26,13 +26,12 @@ module Scrabble
         if word_score >= high_score
           if word_score == high_score
             if high_word.length == 7
-              high_word = high_word
             elsif word.length == 7
               high_word = word
             elsif word.length < high_word.length
               high_word = word
-            elsif high_word.length == word.length
-              high_word = high_word            
+            else
+              high_word = high_word
             end
           else
             high_score = word_score
