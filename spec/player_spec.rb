@@ -72,7 +72,7 @@ describe Scrabble do
         @player.play("xxxxxx")
         @player.play("white")
         @player.play("brown")
-        expect(@player.highest_scoring_word).to be("xxxxxx")
+        expect(@player.highest_scoring_word).to eq("xxxxxx")
       end
     end
 
