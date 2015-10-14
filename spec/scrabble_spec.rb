@@ -32,7 +32,9 @@ describe Scrabble::Scrabble do
   end
 
   describe ".score" do
-
+    it "calculates the score of a word" do
+      expect(Scrabble::Scrabble.score("cat")).to eq 5
+    end
   end
 
 end
