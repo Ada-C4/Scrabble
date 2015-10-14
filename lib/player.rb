@@ -35,6 +35,14 @@ module Scrabble
       end
     end
 
+    def highest_word_score
+      if @highest_scoring_word == ""
+        return 0
+      else
+        Scrabble.score(@highest_scoring_word)
+      end
+    end
+
   end
 
 end

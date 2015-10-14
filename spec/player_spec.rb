@@ -80,10 +80,12 @@ describe Scrabble do
       it "returns the score of the highest scoring word" do
         @player.play("hello")
         @player.play("dog")
-        @player.play("xxxxxx")
+        @player.play("zzzzzz")
         @player.play("white")
         @player.play("brown")
         expect(@player.highest_word_score).to eq(60)
+        @player2 = Scrabble::Player.new("Jen")
+        expect(@player2.highest_word_score).to eq(0)
       end
     end
 
