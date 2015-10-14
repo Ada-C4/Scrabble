@@ -24,15 +24,30 @@ describe Scrabble::Player do
     it "adds the played word to the @plays array" do
       expect(@player.play("word")).to eq ["word"]
     end
+    it "returns false if player has already won" do
+      @player.play("oranges")
+      @player.play("stirred")
+      expect(@player.play("word")).to be_falsey
+    end
   end
   describe "#total_score" do
-    before :each do
+    it "sums up and returns the total score of the players words" do
       @player.play("snack")
       @player.play("apple")
       @player.play("oranges")
-    end
-    it "sums up and returns the total score of the players words" do
       expect(@player.total_score).to eq 11 + 9 + 58
+    end
+  end
+  describe "#won?" do
+    it "returns true if player has over 100 points" do
+      @player.play("oranges")
+      @player.play("stirred")
+      expect(@player.won?).to be_truthy
+    end
+    it "returns false if player has under 100 points" do
+      @player.play("cat")
+      @player.play("dog")
+      expect(@player.won?).to be_falsey
     end
   end
 end
