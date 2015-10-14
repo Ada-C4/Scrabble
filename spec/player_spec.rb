@@ -23,4 +23,13 @@ describe Scrabble::Player do
       expect(@player.plays).to eq ["cat"]
     end
   end
+  describe "#total_score" do
+    it "Sums up and returns the score of the players words" do
+      @player.plays = ["cat", "dog", "zebra"]
+      expect(@player.total_score).to eq 26
+    end
+  end
+  describe "#won?" do
+    it 
+  end
 end
