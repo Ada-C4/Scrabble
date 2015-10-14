@@ -1,25 +1,13 @@
-# module Scrabble
-#   class Scrabble
-#     attr_accessor :scores
-#
-#     def initialize
-#       @scores = []
-#     end
-#   end
-#
-# end
 require 'pry'
 
 class Scrabble
   attr_accessor :player_words, :score
   def initialize
-    @player_words = []
+
   end
 
-  def score(word)
-    #if !@player_words.include?(word)
-    @player_words.push(word)
-    #end
+  def self.score(word)
+
     @score = 0
     if word.length == 7
       @score += 50
@@ -46,7 +34,7 @@ class Scrabble
       #word[index]
   end
 
-  def highest_score_from(array_of_words)
+  def self.highest_score_from(array_of_words)
     sorted_array = array_of_words.sort_by {|word| score(word)}
 
     at_max = true

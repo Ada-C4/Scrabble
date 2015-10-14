@@ -11,32 +11,35 @@ describe Scrabble do
     end
   end
 
-
   describe "#score" do
     before :each do
       @guess_word = "rabbit"
       @guess_word2 = "snake"
       @guess_word3 = "it"
-      @guuess_word_long = "dragons"
+      @guess_word_long = "dragons"
       @array = [@guess_word3, @guess_word2, @guess_word]
     end
 
+    it "checks input is alphabetical" do
+      expect(Scrabble.score(@guess_word_number)).to b
+    end
+
     it "returns a numeric score" do
-      expect(@scrabble.score(@guess_word)).to be_a Fixnum
+      expect(Scrabble.score(@guess_word)).to be_a Fixnum
     end
 
     it "scores the words according to rules" do
-      expect(@scrabble.score(@guess_word)).to eq 10
+      expect(Scrabble.score(@guess_word)).to eq 10
     end
 
-    it "adds new words to player_words array" do
-      @scrabble.score(@guess_word)
-      #@scrabble.score(@guess_word2)
-      expect(@scrabble.player_words).to eql [@guess_word]
-    end
+    # it "adds new words to player_words array" do
+    #   @scrabble.score(@guess_word)
+    #   #@scrabble.score(@guess_word2)
+    #   expect(@scrabble.player_words).to eql [@guess_word]
+    # end
 
     it "adds 50 points to seven letter words" do
-      expect(@scrabble.score(@guuess_word_long)).to eq 59
+      expect(Scrabble.score(@guess_word_long)).to eq 59
     end
   end
 
@@ -51,12 +54,12 @@ describe Scrabble do
     end
 
     it "returns word from array with the highest score" do
-      expect(@scrabble.highest_score_from(@array_for_score)).to eq @guess_word
+      expect(Scrabble.highest_score_from(@array_for_score)).to eq @guess_word
     end
 
     it "returns word with fewer tiles if tie" do
       @array2 = [@guess_word3, @guess_word2, @guess_word4, @guess_word5, @guess_word]
-      expect(@scrabble.highest_score_from(@array2)).to eq @guess_word5
+      expect(Scrabble.highest_score_from(@array2)).to eq @guess_word5
     end
   end
 end
