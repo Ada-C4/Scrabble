@@ -12,7 +12,12 @@ describe Scrabble::Player do
       expect(@player.name).to eq "Ada"
     end
   end
-  describe "plays" do
+  describe "plays and play(word)" do
+    before :each do
+      @player.play("star")
+      @player.play("suns")
+      @player.play("dog")
+    end
     it "returns [star, suns, dog] when player plays star, suns, dog" do
       expect(@player.plays).to eq ["star", "suns", "dog"]
     end

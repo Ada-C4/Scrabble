@@ -34,15 +34,16 @@ module Scrabble
       max_word = ""
       array_of_words.each do |word|
         word_sum = self.score(word)
+        if word.length == 7
+          word_sum += 50
+        end
         if word_sum > max_sum
           max_sum = word_sum
           max_word = word
         elsif word_sum == max_sum
           if word.length == 7
             max_word = word
-            max_sum += 50
-          end
-          if word.length < max_word.length
+          elsif word.length < max_word.length && max_word.length != 7
             max_word = word
           end
         end

@@ -24,6 +24,12 @@ describe Scrabble::Scrabble do
     it "returns clovers from [zoo, clovers, to, rotates]" do
       expect(Scrabble::Scrabble.highest_score_from(["zoo", "clovers", "to", "rotates"])).to eq "clovers"
     end
+    it "returns zzzzzz from [aaaaag, zzzzzz, zzzzzx]" do
+      expect(Scrabble::Scrabble.highest_score_from(["aaaaaag", "zzzzzz", "zzzzzx"])).to eq "zzzzzz"
+    end
+    it "returns aaaaaag from [aaaaag, zzzzzx]" do
+      expect(Scrabble::Scrabble.highest_score_from(["aaaaaag", "zzzzzx"])).to eq "aaaaaag"
+    end
     it "returns star from [star, suns, real]" do
       expect(Scrabble::Scrabble.highest_score_from(["star", "suns", "real"])).to eq "star"
     end
