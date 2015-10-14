@@ -18,9 +18,8 @@ class Scrabble
     end
 
     @score = 0
-    if word.length == 7
-      @score += 50
-    end
+    word.length == 7 ? (@score += 50) : (@score += 0)
+
     word.length.times do |index|
       case word[index].upcase
       when "A","E","I","O","U","L","N","R","S","T"
@@ -40,47 +39,76 @@ class Scrabble
       end
     end
     return @score
-      #word[index]
   end
 
   def self.highest_score_from(array_of_words)
     sorted_array = array_of_words.sort_by {|word| score(word)}
 
-    at_max = true
-    highest_scored_words = []
-    index = 0
+    # Inspired by Jennie and Jenna's solution
+    sorted_score_array = sorted_array.map do |word|
+      score(word)
+    end
 
-    while at_max == true
-      index -= 1
-      if index.abs >= sorted_array.length
-        if score(sorted_array[index]) == score(sorted_array[index+1])
-          highest_scored_words.push(sorted_array[index])
-          at_max = false
-        end
-      else
-        highest_scored_words.push(sorted_array[index])
-        if score(sorted_array[index]) > score(sorted_array[index-1])
-          at_max = false
-        end
+    max_score = sorted_score_array.max
+    best_words = []
+
+    sorted_score_array.length.times do |i|
+      if sorted_score_array[i] == max_score
+        best_words.push(sorted_array[i])
       end
     end
-    highest_scored_words.sort_by! {|word| word.length}
 
-
-    highest_scored_words.each do |word|
-      #puts "made it here"
-      if word == highest_scored_words[-1]
-        return word
-      end
-      word_index = highest_scored_words.index(word)
-      if word.length < highest_scored_words[word_index+1].length
-        #binding.pry
-        return word
-      end
+    best_words.sort_by! do |word|
+      word.length
     end
+
+    if best_words[-1].length == 7
+      return best_words[-1]
+    else
+      return best_words[0]
+    end
+
+# ------------ ORIGINAL SOLUTION ------------------------ #
+    # at_max = true
+    # best_words = []
+    # index = -1
+    #
+    # while at_max == true
+    #   #index -= 1
+    #   if index.abs >= sorted_array.length
+    #     if score(sorted_array[index]) == score(sorted_array[index+1])
+    #       best_words.push(sorted_array[index])
+    #       at_max = false
+    #     end
+    #   else
+    #     best_words.push(sorted_array[index])
+    #     if score(sorted_array[index]) > score(sorted_array[index-1])
+    #       at_max = false
+    #     end
+    #   end
+    #   index -= 1
+    # end
+    # best_words.sort_by! {|word| word.length}
+
+    # best_words.each do |word|
+    #   #puts "made it here"
+    #   if word == best_words[-1]
+    #     return word
+    #   end
+    #   word_index = best_words.index(word)
+    #   if word.length < best_words[word_index+1].length
+    #     #binding.pry
+    #     return word
+    #   end
+    # end
+    # return best_words[0]
+# --------------- END OF ORIGINAL SOLUTION -------------------------- #
+
+
+
 
 
   end
 
-    #return highest_scored_words[0]
+
 end
