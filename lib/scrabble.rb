@@ -45,10 +45,39 @@ module Scrabble
     end
 
     def self.highest_score_from_array(array_of_words)
-      if array_of_words.class != Array
+      if array_of_words.class != Array || array_of_words == []
         return nil
       end
-      
+
+      score_array = array_of_words.map do |word|
+        Scrabble.score(word)
+      end
+
+      max_score = score_array.max
+
+      winners = []
+      score_array.length.times do |i|
+        if score_array[i] == max_score
+          winners.push(array_of_words[i])
+        end
+      end
+
+      if winners.length == 1
+        return winners[0]
+      end
+
+      winners.sort_by! do |word|
+        word.length
+      end
+
+      if winners[-1].length == 7
+        return winners[-1]
+      else
+        return winners[0]
+      end
+
+
+
     end
 
   end

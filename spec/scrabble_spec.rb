@@ -59,6 +59,17 @@ describe Scrabble do
         expect(Scrabble::Scrabble.highest_score_from_array(["dog", "friend", "haiku"])).to eq("haiku")
         expect(Scrabble::Scrabble.highest_score_from_array(["jennie", "jenna"])).to eq("jennie")
       end
+
+      it "will return the 7-letter word in the case of a tie" do
+        expect(Scrabble::Scrabble.highest_score_from_array(["qqqqqj", "aaaaaad"])).to eq("aaaaaad")
+      end
+
+      it "will return the shorter word in the case of a tie without a 7-letter word" do
+        expect(Scrabble::Scrabble.highest_score_from_array(["aa", "d"])).to eq("d")
+        expect(Scrabble::Scrabble.highest_score_from_array(["d", "aa"])).to eq("d")
+        expect(Scrabble::Scrabble.highest_score_from_array(["strkda", "qi", "hoki"])).to eq("qi")
+        expect(Scrabble::Scrabble.highest_score_from_array(["strkda", "hoki"])).to eq("hoki")
+      end
     end
 
 
