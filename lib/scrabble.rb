@@ -1,21 +1,13 @@
 module Scrabble
   class Scrabble
-    # @letter_hash={ ["A", "E", "I", "O", "U", "L", "N", "R", "N", "S", "T"]=>  1,
-    #               ["D", "G"] => 2,
-    #               ["B","C", "M", "P"] => 3,
-    #               ["F", "H", "V", "W", "Y"] => 4,
-    #               ["K"] => 5,
-    #               ["J", "X"] => 8,
-    #               ["Q", "Z"]=> 10}
 
-
-    def letter_score(letter)
+    def self.letter_score(letter)
       case letter
       when "A", "E", "I", "O", "U", "L", "N", "R", "N", "S", "T"
         return 1
       when "D", "G"
         return 2
-      when "B","C", "M", "P"
+      when "B", "C", "M", "P"
         return 3
       when "F", "H", "V", "W", "Y"
         return 4
@@ -28,14 +20,28 @@ module Scrabble
       end
     end
 
-
     def self.score(word)
-      word_array=word.split(//)
+      word_array = word.upcase.split(//)
       sum = 0
       word_array.each do |letter|
-        sum += letter_score(letter)
+        sum += self.letter_score(letter)
       end
       return sum
     end
+
+    def self.highest_score_from(array_of_words)
+      max_sum = 0
+      max_word = ""
+      array_of_words.each do |word|
+        word_sum = self.score(word)
+        if word_sum > max_sum
+          max_sum = word_sum
+          max_word = word
+        end
+      end
+      return max_word
+    end
+
+
   end
 end
