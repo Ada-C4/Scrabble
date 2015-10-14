@@ -3,7 +3,6 @@ require './lib/player.rb'
 describe Player do
   before :each do
     @ada = Player.new("Ada")
-    @player_words =[]
   end
 
   describe "#new" do
@@ -22,17 +21,30 @@ describe Player do
     end
   end
 
-  # describe "#plays" do
-  #   it "returns an Array of words played"
-  #   expect(@ada.plays).to eq @player_words
-  # end
+  describe "#plays" do
+    it "returns an array of words played"do
+    @ada.play("dog")
+    @ada.play("cat")
+    @ada.play("falcon")
+    expect(@ada.plays).to eq @ada.player_words
+    end
+  end
 
   describe "#play" do
     it "pushes the guessed word onto array of guessed words" do
     @ada.play("dog")
     @ada.play("cat")
     @ada.play("falcon")
-    expect(@player_words).to eq ["dog", "cat", "falcon"]
+    expect(@ada.player_words).to eq ["dog", "cat", "falcon"]
+    end
+  end
+
+  describe "#total_score" do
+    it "sums up and returns the score of player words" do
+      @ada.play("dog")
+      @ada.play("cat")
+      @ada.play("falcon")
+      expect(@ada.total_score).to eq 21
     end
   end
 
