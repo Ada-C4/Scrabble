@@ -5,13 +5,21 @@ module Scrabble
       LETTER_VALUES[letter.upcase.to_sym]
     end
     def self.make_array(word)
-      word_array = word.each_char.to_a
-      return word_array
+      return word.each_char.to_a
+    end
+    def self.make_value_array(word)
+      word_array = self.make_array(word)
+      word_array.map do |letter|
+         self.return_letter_value(letter)
+      end
     end
     def self.score(word)
-      # word_array.map do |letter|
-      #   self.return_letter_value(letter)
-      # end
+      value_array = self.make_value_array(word)
+      score = 0
+      value_array.each do |value|
+        score += value
+      end
+      return score
     end
   end
 end
