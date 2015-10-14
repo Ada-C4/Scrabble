@@ -1,3 +1,4 @@
+require 'pry'
 require "./lib/score.rb"
 
 module Scrabble
@@ -22,7 +23,13 @@ module Scrabble
             top_scoring_words_hash[k] = v
           end
         end
-        top_scoring_words_hash
+
+        #make a hash from the top scoring words that instead of containing scores for values, contains the length of the word.
+        word_lengths_hash = {}
+        top_scoring_words_hash.each do |k, v|
+          word_lengths_hash[] =
+        end
+
 
 
     end

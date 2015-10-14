@@ -21,16 +21,15 @@ describe Scrabble::ScrabbleGame do
     #   expect(Scrabble::ScrabbleGame.highest_score_from(@word_array1)).to eq [3, 9]
     # end
 
-    it "Top_scoring_words_hash contains words that have tied scores" do
-      expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to eq ({"bb"=>6, "aaaaaa"=>6, "ki"=>6})
+    # it "Top_scoring_words_hash contains words that have tied scores" do
+    #   expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to eq ({"bb"=>6, "aaaaaa"=>6, "ki"=>6})
+    # end
+
+    it "If there is more than one item in the hash, return the shortest word that is listed first in the array" do
+      expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to be == "bb"
     end
 
-    # it "Return word with highest score" do
-    #   expect(Scrabble::ScrabbleGame.highest_score_from(@word_array1)).to be == "bbb"
-    # end
-    #
-    # it "If more than one highest scoring word, go with the shorter word" do
-    #   expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to be == "bb"
-    # end
+
+    
   end
 end
