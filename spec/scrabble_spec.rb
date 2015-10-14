@@ -22,7 +22,7 @@ describe Scrabble do
     end
 
     it "checks input is alphabetical" do
-      expect(Scrabble.score(@guess_word_number)).to raise_error ArgumentError
+      expect{Scrabble.score(@guess_word_number)}.to raise_error (ArgumentError)
     end
 
     it "returns a numeric score" do
