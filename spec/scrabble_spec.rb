@@ -30,8 +30,17 @@ describe Scrabble do
     end
   end
   describe "self.highest_score_from(array_of_words)" do
-    it "returns word with highest score" do
+    it "returns word with highest score from two word array with different scores and different length" do
       expect(Scrabble::Scrabble.highest_score_from(["cat","word"])).to eq "word"
+    end
+    it "returns first word with highest score from two word array with tied scores and same length" do
+      expect(Scrabble::Scrabble.highest_score_from(["cat", "dog"])).to eq "cat"
+    end
+    it "returns first word with highest score from three word array with second two words highest scores and same length" do
+      expect(Scrabble::Scrabble.highest_score_from(["a", "dog","cat"])).to eq "dog"
+    end
+    it "returns shortest word with highest score from an array of two words with tied scores and different length" do
+      expect(Scrabble::Scrabble.highest_score_from(["word","yap"])).to eq "yap"
     end
   end
 end

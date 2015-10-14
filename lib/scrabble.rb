@@ -40,11 +40,18 @@ module Scrabble
     end
 
     def self.highest_score_from(array_of_words)
-      max_score = array_of_words.max_by do |word|
+      max_word = array_of_words.max_by do |word|
         self.score(word)
       end
+
+      max_score = self.score(max_word)
+      high_scorers = array_of_words.find_all do |word|
+        self.score(word) == max_score
+      end
+
+      winning_word = high_scorers.min_by do |word|
+	      word.length
+	    end
     end
-
-
   end
 end
