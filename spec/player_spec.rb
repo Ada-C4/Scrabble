@@ -1,4 +1,5 @@
 require "./lib/player"
+require "./lib/scrabble"
 
 describe Scrabble::Player do
   before :each do
@@ -22,6 +23,16 @@ describe Scrabble::Player do
   describe "#play(word)" do
     it "adds the played word to the @plays array" do
       expect(@player.play("word")).to eq ["word"]
+    end
+  end
+  describe "#total_score" do
+    before :each do
+      @player.play("snack")
+      @player.play("apple")
+      @player.play("oranges")
+    end
+    it "sums up and returns the total score of the players words" do
+      expect(@player.total_score).to eq 11 + 9 + 58
     end
   end
 end
