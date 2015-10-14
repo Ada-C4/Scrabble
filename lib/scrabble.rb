@@ -49,9 +49,17 @@ module Scrabble
         self.score(word) == max_score
       end
 
-      winning_word = high_scorers.min_by do |word|
-	      word.length
-	    end
+      seven_letter_word = high_scorers.find do |word|
+        word.length == 7
+      end
+
+      if seven_letter_word != nil
+        return seven_letter_word
+      else
+        winning_word = high_scorers.min_by do |word|
+  	      word.length
+        end
+      end
     end
   end
 end

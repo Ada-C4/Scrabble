@@ -42,5 +42,11 @@ describe Scrabble do
     it "returns shortest word with highest score from an array of two words with tied scores and different length" do
       expect(Scrabble::Scrabble.highest_score_from(["word","yap"])).to eq "yap"
     end
+    it "returns 7 letter word if tied with a shorter word in score" do
+      expect(Scrabble::Scrabble.highest_score_from(["word","oranges"])).to eq "oranges"
+    end
+    it "returns the first 7 letter word in the list if tied with another 7 letter word" do
+      expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges"])).to eq "stirred"
+    end
   end
 end
