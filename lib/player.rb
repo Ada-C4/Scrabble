@@ -9,9 +9,9 @@ class Player
     @player_words =[]
   end
 
-  def name
-    return @name
-  end
+  # def name
+  #   return @name
+  # end
 
   def plays
     return @player_words
@@ -19,32 +19,30 @@ class Player
 
   def play(word)
     if word.class != String
-        raise ArgumentError, "Input must be a string."  
+        raise ArgumentError, "Input must be a string."
     end
-    self.won? ? (return false) : (@player_words.push(word))
+    won? ? (return false) : (@player_words.push(word))
   end
 
   def total_score
-    @total_score = 0
+    total_score = 0
     @player_words.each do |word|
-      @total_score += Scrabble.score(word)
+      total_score += Scrabble.score(word)
     end
-    return @total_score
+    return total_score
   end
 
   def won?
-    self.total_score
-    @total_score >= 100 ? (return true) : (return false)
+    total_score >= 100 ? (return true) : (return false)
   end
 
   def highest_scoring_word
-    @high_word = @player_words.max_by { |word| Scrabble.score(word) }
-    return @high_word
+    high_word = @player_words.max_by { |word| Scrabble.score(word) }
+    return high_word
   end
 
   def highest_word_score
-    self.highest_scoring_word
-    return Scrabble.score(@high_word)
+    return Scrabble.score(highest_scoring_word)
   end
 
 end
