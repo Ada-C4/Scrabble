@@ -1,12 +1,10 @@
+require 'pry'
+
 class Player
   attr_accessor :name
 
-  def initialize
+  def initizalize
     @name = name
   end
-
-  # def self.new(name)
-  #   @name = name
-  # end
 
 end

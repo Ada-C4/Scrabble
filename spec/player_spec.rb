@@ -2,7 +2,7 @@ require './lib/player.rb'
 
 describe Player do
   before :each do
-    @player = Player.new()
+    @player = Player.new("Ada")
     #@player.new("Ada")
   end
 
