@@ -9,6 +9,9 @@ module Scrabble
     end
 
     def play(word)
+      if won?
+        return false
+      end
       @plays.push(word)
     end
 
@@ -20,7 +23,13 @@ module Scrabble
       return score
     end
 
-
+    def won?
+      if total_score > 100
+        return true
+      else
+        return false
+      end
+    end
 
   end
 

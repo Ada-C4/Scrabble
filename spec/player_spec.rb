@@ -26,6 +26,11 @@ describe Scrabble do
     end
 
     describe "#play(word)" do
+      it "returns false if the player has already won" do
+        @player.play("zzzzxzxzxzxzxzxzxzxzz")
+        expect(@player.play("a")).to be(false)
+      end
+
       it "adds the input word to the plays Array" do
         @player.play("hello")
         expect(@player.plays).to eq(["hello"])
@@ -54,9 +59,9 @@ describe Scrabble do
         @player.play("dog")
         @player.play("white")
         @player.play("brown")
-        expect(@player.won?).to be_false
+        expect(@player.won?).to be(false)
         @player.play("zzzzzzz")
-        expect(@player.won?).to be_true
+        expect(@player.won?).to be(true)
       end
     end
 
