@@ -36,6 +36,7 @@ module Scrabble
       0.upto(word.length - 1) do |n|
         word_score += SCORES[word[n]]
       end
+      word_score += 50 if word.length == 7
       return word_score
     end
 

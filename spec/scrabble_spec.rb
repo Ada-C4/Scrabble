@@ -28,6 +28,9 @@ describe Scrabble do
     it "assigns a score of 8 for 'word'" do
       expect(Scrabble::Scrabble.score("word")).to eq 8
     end
+    it "adds 50 points to 7 letter words" do
+      expect(Scrabble::Scrabble.score("oranges")).to eq 58
+    end
   end
   describe "self.highest_score_from(array_of_words)" do
     it "returns word with highest score from two word array with different scores and different length" do
@@ -49,7 +52,7 @@ describe Scrabble do
       expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges"])).to eq "stirred"
     end
     it "returns the highest scoring word, even if there is a 7 letter word of lower score" do
-      expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges","joke"])).to eq "joke"
+      expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges","joke"])).to eq "stirred"
     end
   end
 end
