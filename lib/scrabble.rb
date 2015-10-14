@@ -1,3 +1,4 @@
+#require "player.rb"
 module Scrabble
   class Scrabble
 
