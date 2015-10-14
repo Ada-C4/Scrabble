@@ -58,7 +58,7 @@ describe ScrabbleMod do
         expect(@player.won?).to be false
       end
     end
-    
+
     describe "#highest_scoring_word" do
       it "returns the highest scoring word the user has played" do
         @player.plays = ["cat","dog","mouse"]
@@ -67,6 +67,17 @@ describe ScrabbleMod do
       it "returns a string" do
         @player.plays = ["cat","dog","mouse"]
         expect(@player.highest_scoring_word).to be_kind_of(String)
+      end
+    end
+
+    describe "#highest_word_score" do
+      it "returns a number" do
+        @player.plays = ["cat","dog","mouse"]
+        expect(@player.highest_word_score).to be_kind_of(Fixnum)
+      end
+      it "returns the score of the highest-scoring word in the array" do
+        @player.plays = ["cat","dog","mouse"]
+        expect(@player.highest_word_score).to eq 7
       end
     end
   end
