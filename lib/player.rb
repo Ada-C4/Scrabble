@@ -23,6 +23,11 @@ module Scrabble
       return @total
     end
 
+    def highest_scoring_word
+
+    end
+
+
     def won?
       if @total > 100
         true

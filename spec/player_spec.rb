@@ -64,5 +64,12 @@ describe Scrabble::Player do
     end
   end
 
+  describe "#highest_scoring_word" do
+    it "returns highest scoring word player used" do
+      expect(@player2.highest_scoring_word).to eq "hand"
+    end
+  end
+
+
 
 end
