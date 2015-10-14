@@ -30,8 +30,13 @@ module Scrabble
     "Z" => 10
   }
 
-    def self.score(letter)
-      return SCORES[letter]
+    def self.score(word)
+      word = word.upcase
+      word_score = 0
+      0.upto(word.length - 1) do |n|
+        word_score += SCORES[word[n]]
+      end
+      return word_score
     end
 
 

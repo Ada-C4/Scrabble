@@ -12,9 +12,9 @@ describe Scrabble do
       expect(Scrabble::Scrabble.score("Q")).to eq 10
     end
   end
-  # describe "self.score(word)" do
-  #   it "assigns a score for a word" do
-  #     expect(Scrabble::Scrabble.score(word))
-  #   end
-  # end
+  describe "self.score(word)" do
+    it "assigns a score of 8 for 'word'" do
+      expect(Scrabble::Scrabble.score('word')).to eq 8
+    end
+  end
 end
