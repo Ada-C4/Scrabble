@@ -37,8 +37,13 @@ class Scrabble
       word_total = word_score(palabra)
       score_array.push(word_total)
       end
-  combo_array  = word_array.map.with_index { |e,i| e + score_array.to_s[i] }
-  return combo_array.sort
+    #return score_array
+    index_loc = score_array.each_with_index.max[1]
+    return word_array[index_loc]
+    return score_array
+    #call that index on word_array
+    #combo_array = score_array.zip(word_array).map(&:join)#.map.with_index { |e,i| e + score_array.to_s[i] }
+    #return score_array.sort_by{|s| s[1]}
 
   end
 end

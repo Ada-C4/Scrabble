@@ -41,8 +41,8 @@ describe Scrabble do
   end
 
   describe "#highest_word_score" do
-    it "scores each word both arrays to be paried together" do
-    expect(@scrabble.highest_word_score("will")).to eq "4w i1 l1 l1"
+    it "call that index on word_array" do
+    expect(@scrabble.highest_word_score("best, Cain, Harte")).to eq "kitty"
     end
   end
 end
