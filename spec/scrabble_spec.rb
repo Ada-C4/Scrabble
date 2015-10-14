@@ -14,10 +14,10 @@ describe Scrabble::Scrabble do
       expect(Scrabble::Scrabble.return_letter_value(@letter)).to eq 1
     end
   end
-  # describe "#self.score(word)" do
-  #   @word = "abcdefghijklmnopqrstuvwxyz"
-  #   it "totals the letter values in a word" do
-  #     expect(Scrabble::Scrabble.score(@word)).to eq 87
-  #   end
-  # end
+  describe "#self.make_array(word)" do
+    it "creates an array of letters in the word" do
+      @word = "cat"
+      expect(Scrabble::Scrabble.make_array(@word)).to eq ["c", "a", "t"]
+    end
+  end
 end
