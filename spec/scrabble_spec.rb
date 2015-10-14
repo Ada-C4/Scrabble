@@ -46,16 +46,16 @@ describe Scrabble do
       @guess_word3 = "it"
       @guess_word4 = "kk"
       @guess_word5 = "z"
-      @array = [@guess_word3, @guess_word2, @guess_word]
+      @array_for_score = [@guess_word3, @guess_word2, @guess_word]
     end
 
     it "returns word from array with the highest score" do
-      expect(@scrabble.highest_score_from(@array)).to eq @guess_word
+      expect(@scrabble.highest_score_from(@array_for_score)).to eq @guess_word
     end
 
     it "returns word with fewer tiles if tie" do
-      @array2 = [@guess_word3, @guess_word2, @guess_word4, @guess_word]
-      expect(@scrabble.highest_score_from(@array)).to eq @guess_word4
+      @array2 = [@guess_word3, @guess_word2, @guess_word4, @guess_word5, @guess_word]
+      expect(@scrabble.highest_score_from(@array2)).to eq @guess_word5
     end
   end
 end
