@@ -77,5 +77,4 @@ describe Scrabble::Player do
       expect(@player.highest_word_score).to eq 5
     end
   end
-
 end
