@@ -43,10 +43,11 @@ describe Player do
     expect(@ada.player_words).to eq ["dog", "cat", "falcon"]
     end
 
-    # it "if the player has won, returns false" do
-    #   @ada.play("zqzqzqzqzqzq")
-    #   expect(@ada.play("dog")).to eq false
-    # end
+    it "if the player has won, returns false" do
+      @ada.play("zqzqzqzqzqzq")
+      expect(@ada.play("dog")).to eq false
+    end
+    
   end
 
   describe "#total_score" do

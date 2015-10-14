@@ -1,5 +1,5 @@
 require 'pry'
-require "scrabble.rb"
+require "./lib/scrabble.rb"
 
 class Player
   attr_accessor :name, :player_words
@@ -7,7 +7,6 @@ class Player
   def initialize(name)
     @name = name
     @player_words =[]
-    @total_score = 0
   end
 
   def name
@@ -19,10 +18,11 @@ class Player
   end
 
   def play(word)
-    self.won? ? (return false) : (@player_words.push(word))  
+    self.won? ? (return false) : (@player_words.push(word))
   end
 
   def total_score
+    @total_score = 0
     @player_words.each do |word|
       @total_score += Scrabble.score(word)
     end
