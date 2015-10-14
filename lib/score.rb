@@ -2,17 +2,6 @@ module Scrabble
 
   class Scrabblegame
 
-# returns the total score value for the given word.
-#The word is input as a string (case insensitive).
-
-
-    # def word_string(word)
-    #   if word.is_a? String
-    #     return [self]
-    #   end
-    # end
-# by using self, you won't have to create a new Scrabblegame instance to use it.
-# Now I can just call Scrabble::Scrabblegame.score (don't have to "new" it up)
     def self.score(word)
       value = Hash.new
       value["a"] = 1
@@ -44,8 +33,6 @@ module Scrabble
 
       letters = word.downcase.split("")
 
-      # array.each { |a| sum+=a }
-
       word_score = 0
 
       letters.each do |n|
@@ -57,14 +44,3 @@ module Scrabble
 
   end
 end
-
-# def score(word)
-
-# def self.score(word)
-#   word = gets.chomp.to_s.upcase
-#   word.push(@word_array)
-#   return score
-#
-# end
-# end
-# end
