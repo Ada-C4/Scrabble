@@ -16,8 +16,20 @@ describe Scrabble::Scrabble do
   end
 
   describe "self.highest_score_from(array_of_words)" do
-    it "returns zoo from [eat, star, zoo]" do
-      expect(Scrabble::Scrabble.highest_score_from(["eat", "star", "zoo"])).to eq "zoo"
+    it "returns zoo from [eat, zoo, star]" do
+      expect(Scrabble::Scrabble.highest_score_from(["eat", "zoo", "star"])).to eq "zoo"
+    end
+    it "returns dog from [dog, stars, sun, to]" do
+      expect(Scrabble::Scrabble.highest_score_from(["dog", "stars", "sun", "to"])).to eq "dog"
+    end
+    it "returns clovers from [zoo, clovers, to, rotates]" do
+      expect(Scrabble::Scrabble.highest_score_from(["zoo", "clovers", "to", "rotates"])).to eq "clovers"
+    end
+    it "returns star from [star, suns, real]" do
+      expect(Scrabble::Scrabble.highest_score_from(["star", "suns", "real"])).to eq "star"
+    end
+    it "returns star from [sun, to, star, suns]" do
+      expect(Scrabble::Scrabble.highest_score_from(["sun", "to", "star", "suns"])).to eq "star"
     end
   end
 

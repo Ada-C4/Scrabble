@@ -21,9 +21,9 @@ module Scrabble
     end
 
     def self.score(word)
-      word_array = word.upcase.split(//)
+      letter_array = word.upcase.split(//)
       sum = 0
-      word_array.each do |letter|
+      letter_array.each do |letter|
         sum += self.letter_score(letter)
       end
       return sum
@@ -37,11 +37,17 @@ module Scrabble
         if word_sum > max_sum
           max_sum = word_sum
           max_word = word
+        elsif word_sum == max_sum
+          if word.length == 7
+            max_word = word
+            max_sum += 50
+          end
+          if word.length < max_word.length
+            max_word = word
+          end
         end
       end
       return max_word
     end
-
-
   end
 end
