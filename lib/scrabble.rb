@@ -68,6 +68,22 @@ class Scrabble
       end
     end
     highest_scored_words.sort_by! {|word| word.length}
-    return highest_scored_words[0]
+
+
+    highest_scored_words.each do |word|
+      #puts "made it here"
+      if word == highest_scored_words[-1]
+        return word
+      end
+      word_index = highest_scored_words.index(word)
+      if word.length < highest_scored_words[word_index+1].length
+        #binding.pry
+        return word
+      end
+    end
+
+
   end
+
+    #return highest_scored_words[0]
 end
