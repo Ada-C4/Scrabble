@@ -21,6 +21,9 @@ class Scrabble
     @player_words.push(word)
     #end
     @score = 0
+    if word.length == 7
+      @score += 50
+    end
     word.length.times do |index|
       case word[index].upcase
       when "A","E","I","O","U","L","N","R","S","T"

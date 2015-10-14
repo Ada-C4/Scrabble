@@ -17,6 +17,7 @@ describe Scrabble do
       @guess_word = "rabbit"
       @guess_word2 = "snake"
       @guess_word3 = "it"
+      @guuess_word_long = "dragons"
       @array = [@guess_word3, @guess_word2, @guess_word]
     end
 
@@ -28,14 +29,14 @@ describe Scrabble do
       expect(@scrabble.score(@guess_word)).to eq 10
     end
 
-    it "accepts strings as input" do
-      #expect(@scrabble.score(nil))
-    end
-
     it "adds new words to player_words array" do
       @scrabble.score(@guess_word)
       #@scrabble.score(@guess_word2)
       expect(@scrabble.player_words).to eql [@guess_word]
+    end
+
+    it "adds 50 points to seven letter words" do
+      expect(@scrabble.score(@guuess_word_long)).to eq 59
     end
   end
 
