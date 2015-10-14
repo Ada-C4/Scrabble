@@ -48,5 +48,8 @@ describe Scrabble do
     it "returns the first 7 letter word in the list if tied with another 7 letter word" do
       expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges"])).to eq "stirred"
     end
+    it "returns the highest scoring word, even if there is a 7 letter word of lower score" do
+      expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges","joke"])).to eq "joke"
+    end
   end
 end
