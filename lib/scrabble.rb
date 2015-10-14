@@ -44,6 +44,13 @@ module Scrabble
       return score
     end
 
+    def self.highest_score_from_array(array_of_words)
+      if array_of_words.class != Array
+        return nil
+      end
+      
+    end
+
   end
 
 end

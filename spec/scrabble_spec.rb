@@ -48,6 +48,19 @@ describe Scrabble do
 
     end
 
+    describe ".highest_score_from_array(array_of_words)" do
+      it "returns nil if not passed an array or empty array" do
+        expect(Scrabble::Scrabble.highest_score_from_array("")).to be_nil
+        expect(Scrabble::Scrabble.highest_score_from_array("hello")).to be_nil
+        expect(Scrabble::Scrabble.highest_score_from_array([])).to be_nil
+      end
+
+      it "returns the word with the highest score" do
+        expect(Scrabble::Scrabble.highest_score_from_array(["dog", "friend", "haiku"])).to eq("haiku")
+        expect(Scrabble::Scrabble.highest_score_from_array(["jennie", "jenna"])).to eq("jennie")
+      end
+    end
+
 
   end
 
