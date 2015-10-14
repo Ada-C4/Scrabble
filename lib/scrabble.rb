@@ -10,9 +10,37 @@ module Scrabble
     end
 
     def self.score(word)
+      sum = 0
+      word.each_char do |letter|
+        letter_val = letter_value(letter.upcase)
+        sum += letter_val
+      end
+      return sum
     end
 
     def self.highest_score_from(array_of_words)
+      high_score = 0
+      high_word = nil
+      array_of_words.map do |word|
+        word_score = score(word.upcase)
+        if word_score >= high_score
+          if word_score == high_score
+            if high_word.length == 7
+              high_word = high_word
+            elsif word.length == 7
+              high_word = word
+            elsif word.length < high_word.length
+              high_word = word
+            elsif high_word.length == word.length
+              high_word = high_word            
+            end
+          else
+            high_score = word_score
+            high_word = word
+          end
+        end
+      end
+      return high_word
     end
 
   end
