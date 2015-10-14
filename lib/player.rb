@@ -32,5 +32,18 @@ module ScrabbleMod
       end
       return total_score
     end
+
+    def won?
+      if total_score > 100
+        @won = true
+        return true
+      else
+        return false
+      end
+    end
+
+    def highest_scoring_word
+      ScrabbleMod::Scrabble.highest_score_from(@plays)
+    end
   end
 end
