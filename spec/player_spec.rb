@@ -76,6 +76,17 @@ describe Scrabble do
       end
     end
 
+    describe "#highest_word_score" do
+      it "returns the score of the highest scoring word" do
+        @player.play("hello")
+        @player.play("dog")
+        @player.play("xxxxxx")
+        @player.play("white")
+        @player.play("brown")
+        expect(@player.highest_word_score).to eq(60)
+      end
+    end
+
 
 
   end
