@@ -8,6 +8,7 @@
 #   end
 #
 # end
+require 'pry'
 
 class Scrabble
   attr_accessor :player_words, :score
@@ -44,16 +45,28 @@ class Scrabble
 
   def highest_score_from(array_of_words)
     sorted_array = array_of_words.sort_by {|word| score(word)}
+
     at_max = true
     highest_scored_words = []
-    while at_max
-      index = -1
-      highest_scored_words.push(sorted_array[index])
+    index = 0
+
+    while at_max == true
       index -= 1
-      if score(sorted_array[index-1]) > score(sorted_array[index])
-        at_max == false
+      if index.abs > sorted_array.length
+        if score(sorted_array[index]) == score(sorted_array[index+1])
+          highest_scored_words.push(sorted_array[index])
+          at_max = false
+        end
+      else
+        if score(sorted_array[index]) > score(sorted_array[index-1])
+          highest_scored_words.push(sorted_array[index])
+          at_max = false
+        end
+        index -= 1
       end
     end
+    #puts "Made it here"
+    #binding.pry
     highest_scored_words.sort_by! {|word| word.length}
     return highest_scored_words[-1]
   end
