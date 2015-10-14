@@ -42,21 +42,13 @@ module ScrabbleMod
         word_array.each do |letter|
           word_score += SCORES[letter.to_sym]
         end
-        #return word score variable
+        #add 50 points if the word has 7 letters and return word score variable
+        word_score += 50 if word.length == 7
         return word_score
       else
         return "Error message"
       end
     end
-
-#     @array_of_words = ["ab","baaaaaaa", "aabbaa"]
-# word_hash = {
-#   "ab": 4,
-#   "baaaaaaa": 10,
-#   "aabbaa": 10
-# }
-# max_score = 10
-# high_scores = ["baaaaaaa","aabbaa"]
 
     def self.highest_score_from(array_of_words)
       word_hash = {}
