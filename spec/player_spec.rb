@@ -25,11 +25,12 @@ describe ScrabbleMod do
     end
     describe "#play(word)" do
       it "returns false if a player has already won" do
-        @won = true
-        expect(@player.play(word)).to eq false
+        @player.won = true
+        expect(@player.play(@word)).to be false
       end
       it "adds the input word to the plays array" do
-        expect(@player.play(@word)).to eq [@word]
+        @player.plays = [@word,@word1,@word2]
+        expect(@player.play(@word4)).to eq [@word,@word1,@word2,@word4]
       end
     end
   end
