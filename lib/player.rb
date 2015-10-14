@@ -7,4 +7,8 @@ class Player
     @name = name
   end
 
+  def name
+    return @name
+  end
+
 end

@@ -13,9 +13,13 @@ describe Player do
     it "assigns the input name to the @name variable" do
       expect(@ada.name).to eq "Ada"
     end
-
   end
 
+  describe "#name" do
+    it "returns the name assigned to the player" do
+      expect(@ada.name).to eq "Ada"
+    end
+  end
 
 
 end
