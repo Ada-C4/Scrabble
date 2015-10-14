@@ -13,6 +13,18 @@ describe Scrabble do
       end
     end
 
+    describe "#name" do
+      it "assigns player name" do
+        expect(@player.name).to eq("Jenn")
+      end
+    end
+
+    describe "#plays" do
+      it "returns an array of the words played" do
+        expect(@player.plays).to be_an(Array)
+      end
+    end
+
 
 
 
