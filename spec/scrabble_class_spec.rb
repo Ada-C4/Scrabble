@@ -17,14 +17,17 @@ describe Scrabble do
     it "returns QUIZ" do
       expect(Scrabble::Scrabble.highest_score_from(["QUIZ", "CAT"])).to eq "QUIZ"
     end
-    it "returns ZQZQZQ" do
-      expect(Scrabble::Scrabble.highest_score_from(["LOLOLOL", "ZQZQZQ"])).to eq "ZQZQZQ"
+    it "returns ZQZQZQ (60 points)" do
+      expect(Scrabble::Scrabble.highest_score_from(["AAAAAAG", "ZQZQZQ"])).to eq "ZQZQZQ"
     end
-    it "returns LOLOLOG" do # this is passing without writing any specific code
+    it "the score is tied between a 7 letter and non 7 letter word, return the 7 letter word" do
       expect(Scrabble::Scrabble.highest_score_from(["ZZZZZX", "LOLOLOG"])).to eq "LOLOLOG"
     end
-    it "returns ZAM" do
+    it "returns the shorter word when the scores are tied" do
       expect(Scrabble::Scrabble.highest_score_from(["ELBOWW", "ZAM"])).to eq "ZAM"
+    end
+    it "returns the first word in array if both length and score are equal" do
+      expect(Scrabble::Scrabble.highest_score_from(["AEI", "IOU", "RLS"])).to eq "AEI"
     end
   end
 end

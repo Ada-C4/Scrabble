@@ -20,32 +20,38 @@ module Scrabble
       return point
     end
 
-  def self.score(word)
-    l_array = word.split("")
-    @sum = 0
-    l_array.each do |l|
-      score = letter_score(l)
-      @sum += score
+    def self.score(word)
+      l_array = word.split("")
+      sum = 0
+      l_array.each do |l|
+        score = letter_score(l)
+        sum += score
+      end
+      if l_array.count == 7
+        sum = sum + 50
+      end
+      return sum
     end
-    if l_array.count == 7
-      @sum = @sum + 50
-    end
-    return @sum
-  end
 
 
 
-  def self.highest_score_from(array_of_words)
-    max_score = 0
-    max_word = ""
-    array_of_words.each do |word|
-      score = self.score(word)
-    if score > max_score
-      max_score = score
-      max_word = word
+    def self.highest_score_from(array_of_words)
+      max_score = 0
+      max_word = ""
+      array_of_words.each do |word|
+        score = self.score(word)
+        if score > max_score
+          max_score = score
+          max_word = word
+        elsif score == max_score && word.length == 7
+          max_score = score
+          max_word = word
+        elsif score == max_score && word.length < max_word.length
+          max_score = score
+          max_word = word
+        end
+      end
+      return max_word
     end
-    return max_word
-    end
-  end
   end
 end
