@@ -48,6 +48,18 @@ describe Scrabble do
       end
     end
 
+    describe "#won?" do
+      it "returns true if player has over 100 points, otherwise false" do
+        @player.play("hello")
+        @player.play("dog")
+        @player.play("white")
+        @player.play("brown")
+        expect(@player.won?).to be_false
+        @player.play("zzzzzzz")
+        expect(@player.won?).to be_true
+      end
+    end
+
 
 
   end
