@@ -1,4 +1,3 @@
-Test if this is working
 
 # Scrabble
 
