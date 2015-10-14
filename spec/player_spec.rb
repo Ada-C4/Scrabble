@@ -40,9 +40,11 @@ describe Scrabble do
         @player.play("dog")
         @player.play("white")
         @player.play("brown")
+        @player2 = Scrabble::Player.new("Jen")
       end
       it "Sums up and returns the score of the players words" do
         expect(@player.total_score).to eq(34)
+        expect(@player2.total_score).to eq(0)
       end
     end
 

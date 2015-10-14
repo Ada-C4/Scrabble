@@ -12,6 +12,13 @@ module Scrabble
       @plays.push(word)
     end
 
+    def total_score
+      score = 0
+      @plays.each do |word|
+        score += Scrabble.score(word)
+      end
+      return score
+    end
 
 
 
