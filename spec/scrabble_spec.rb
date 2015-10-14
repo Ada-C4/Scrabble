@@ -62,6 +62,7 @@ describe Scrabble do
 
       it "will return the 7-letter word in the case of a tie" do
         expect(Scrabble::Scrabble.highest_score_from_array(["qqqqqj", "aaaaaad"])).to eq("aaaaaad")
+        expect(Scrabble::Scrabble.highest_score_from_array(["zzzzzx", "qqqqqj", "aaaaaad"])).to eq("aaaaaad")
       end
 
       it "will return the shorter word in the case of a tie without a 7-letter word" do
