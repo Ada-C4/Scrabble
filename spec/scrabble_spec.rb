@@ -8,10 +8,16 @@ describe Scrabble::Scrabble do
       expect(@game).to be_an_instance_of Scrabble::Scrabble
     end
   end
-  # describe "LETTER_VALUES is a hash" do
-  #   expect(LETTER_VALUES.is_a? Hash).to be_truthy
-  # end
-  describe "word score is equal to the sum of letter values" do
-    
+  describe ".return_letter_value" do
+    it "returns value for letter using LETTER_VALUES" do
+      @letter = "l"
+      expect(Scrabble::Scrabble.return_letter_value(@letter)).to eq 1
+    end
   end
+  # describe "#self.score(word)" do
+  #   @word = "abcdefghijklmnopqrstuvwxyz"
+  #   it "totals the letter values in a word" do
+  #     expect(Scrabble::Scrabble.score(@word)).to eq 87
+  #   end
+  # end
 end
