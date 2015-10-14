@@ -3,7 +3,7 @@ require 'pry'
 class Player
   attr_accessor :name
 
-  def initizalize
+  def initialize(name)
     @name = name
   end
 
