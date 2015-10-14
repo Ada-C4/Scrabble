@@ -1,10 +1,20 @@
 class Scrabble
   def letter_score(letter)
-    case letter
-    when "a" #E, I, O, U, L, N, R, S, T
+    case letter.downcase
+    when "a", "e", "i", "o", "u", "l", "n", "r", "s", "t"
       return 1
+    when "d", "g"
+      return 2
     when "m", "b", "c", "p"
       return 3
+    when "f", "h", "v", "w", "y"
+      return 4
+    when "k"
+      return 5
+    when "j", "x"
+      return 8
+    when "q", "z"
+      return 10
     end
   end
   #SCORE = 0

@@ -36,7 +36,7 @@ describe Scrabble do
 
   describe "#word_score" do
     it "iterates through letters and changes them to integers" do
-      expect(@scrabble.word_score("m" "a")).to eq 4
+      expect(@scrabble.word_score("MONEY")).to eq 10
     end
   end
 end
