@@ -9,7 +9,11 @@ module Scrabble
     end
 
     def play(word)
-      @plays.push(word)
+      if won? == true
+        return false
+      else
+        @plays.push(word)
+      end
     end
 
     def total_score

@@ -5,9 +5,11 @@ describe Scrabble::Player do
     @player1 = Scrabble::Player.new("bob")
     @player2 = Scrabble::Player.new("andre")
     @player3 = Scrabble::Player.new("batman")
+    @player4 = Scrabble::Player.new("spiderman")
     @player2.play("love") # love = 7
     @player2.play("toast") # toast = 5
     @player2.play("hand") # hand = 8
+    @player3.total = 101
 
   end
 
@@ -37,9 +39,9 @@ describe Scrabble::Player do
     it "adds the input word to the plays array" do
       expect(@player2.plays).to eq ["love", "toast", "hand"]
     end
-    # it "returns false is player has already won" do
-    #   expect(@player3.plays).to eq false
-    # end
+    it "returns false is player has already won" do
+      expect(@player3.play("word")).to eq false
+    end
   end
 
   describe "#total_score" do
@@ -50,12 +52,15 @@ describe Scrabble::Player do
 
   describe "#won?" do
     it "returns true if player has over 100 points" do
-      @player3.total = 101
       expect(@player3.won?).to eq true
     end
 
     it "returns false if player does not have over 100 points" do
-
+      expect(@player2.won?).to eq false
+    end
+    it "returns false if player does not have over 100 points" do
+      @player4.total = 100
+      expect(@player4.won?).to eq false
     end
   end
 
