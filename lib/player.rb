@@ -6,5 +6,9 @@ module Scrabble
       @name = name
       @plays = []
     end
+    def play(word)
+      @plays.push(word)
+      # Returns false if player has already won
+    end
   end
 end
