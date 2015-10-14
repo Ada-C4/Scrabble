@@ -53,21 +53,21 @@ class Scrabble
     while at_max == true
       index -= 1
       if index.abs > sorted_array.length
+        #binding.pry
         if score(sorted_array[index]) == score(sorted_array[index+1])
           highest_scored_words.push(sorted_array[index])
           at_max = false
         end
       else
+        highest_scored_words.push(sorted_array[index])
         if score(sorted_array[index]) > score(sorted_array[index-1])
-          highest_scored_words.push(sorted_array[index])
-          at_max = false
+          at_max == false
         end
-        index -= 1
       end
     end
     #puts "Made it here"
-    #binding.pry
+    binding.pry
     highest_scored_words.sort_by! {|word| word.length}
-    return highest_scored_words[-1]
+    return highest_scored_words[0]
   end
 end
