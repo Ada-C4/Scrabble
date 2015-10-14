@@ -33,5 +33,17 @@ describe ScrabbleMod do
         expect(@player.play(@word4)).to eq [@word,@word1,@word2,@word4]
       end
     end
+    describe "#total_score" do
+      it "returns an integer" do
+        expect(@player.total_score).to be_kind_of(Fixnum)
+      end
+      it "returns a correctly totaled score" do
+        @player.plays = ["cat","dog","mouse"]
+        expect(@player.total_score).to eq 17
+      end
+    end
+    describe "#won?" do
+      
+    end
   end
 end

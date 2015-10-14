@@ -1,3 +1,5 @@
+require "./lib/scrabble"
+
 module ScrabbleMod
   class Player
     attr_accessor :name, :won, :plays
@@ -21,6 +23,14 @@ module ScrabbleMod
       else
         @plays.push(word)
       end
+    end
+
+    def total_score
+      total_score = 0
+      @plays.each do |word|
+        total_score += ScrabbleMod::Scrabble.score(word)
+      end
+      return total_score
     end
   end
 end
