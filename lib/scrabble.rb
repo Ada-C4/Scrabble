@@ -29,7 +29,6 @@ module Scrabble
        "x" => 8,
        "q" => 10,
        "z" => 10,
-       " " => 0
     }
 
     def self.score(word)
@@ -75,8 +74,6 @@ module Scrabble
       else
         return winners[0]
       end
-
-
 
     end
 

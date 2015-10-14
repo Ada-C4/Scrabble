@@ -31,7 +31,7 @@ describe Scrabble do
       it "returns the correct point value when given a String argument" do
         expect(Scrabble::Scrabble.score("dog")).to eq 5
         expect(Scrabble::Scrabble.score("friend")).to eq 10
-        expect(Scrabble::Scrabble.score("haiku")).to eq 12
+        expect(Scrabble::Scrabble.score("haiku       ")).to eq 12
       end
 
       it "returns the correct bonus point value when given a 7-letter word" do
