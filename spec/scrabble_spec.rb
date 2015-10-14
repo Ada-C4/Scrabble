@@ -54,5 +54,8 @@ describe Scrabble do
     it "returns the highest scoring word, even if there is a 7 letter word of lower score" do
       expect(Scrabble::Scrabble.highest_score_from(["word","stirred","oranges","joke"])).to eq "stirred"
     end
+    it "returns the highest score word of 6 letters, even if there is a 7 letter word" do
+      expect(Scrabble::Scrabble.highest_score_from(["aaaaaaa","zzzzzz"])).to eq "zzzzzz"
+    end
   end
 end
