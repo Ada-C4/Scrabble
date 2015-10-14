@@ -8,6 +8,10 @@ module Scrabble
       @plays = []
     end
 
+    def play(word)
+      @plays.push(word)
+      # will need to return false if player has won
+    end
 
 
 
