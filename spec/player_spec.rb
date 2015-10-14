@@ -25,6 +25,14 @@ describe Scrabble do
       end
     end
 
+    describe "#play(word)" do
+      it "adds the input word to the plays Array" do
+        @player.play("hello")
+        expect(@player.plays).to eq(["hello"])
+        @player.play("dog")
+        expect(@player.plays).to eq(["hello", "dog"])
+      end
+    end
 
 
 
