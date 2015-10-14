@@ -36,7 +36,13 @@ describe Scrabble do
 
   describe "#word_score" do
     it "iterates through letters and changes them to integers" do
-      expect(@scrabble.word_score("MONEY")).to eq 10
+      expect(@scrabble.word_score("Me")).to eq 4
+    end
+  end
+
+  describe "#highest_word_score" do
+    it "scores each word both arrays to be paried together" do
+    expect(@scrabble.highest_word_score("will")).to eq "4w i1 l1 l1"
     end
   end
 end
