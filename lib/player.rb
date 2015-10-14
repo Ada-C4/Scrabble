@@ -18,6 +18,9 @@ class Player
   end
 
   def play(word)
+    if word.class != String
+        raise ArgumentError, "Input must be a string."  
+    end
     self.won? ? (return false) : (@player_words.push(word))
   end
 
@@ -32,6 +35,16 @@ class Player
   def won?
     self.total_score
     @total_score >= 100 ? (return true) : (return false)
+  end
+
+  def highest_scoring_word
+    @high_word = @player_words.max_by { |word| Scrabble.score(word) }
+    return @high_word
+  end
+
+  def highest_word_score
+    self.highest_scoring_word
+    return Scrabble.score(@high_word)
   end
 
 end

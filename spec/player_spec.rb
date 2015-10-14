@@ -31,9 +31,9 @@ describe Player do
   end
 
   describe "#play" do
-    before :each do
-      @ada = Player.new("Ada")
-      @total_score = 0
+
+    it "checks if the input is a string" do
+      expect { @ada.play(124) }.to raise_error (ArgumentError)
     end
 
     it "pushes the guessed word onto array of guessed words" do
@@ -47,7 +47,7 @@ describe Player do
       @ada.play("zqzqzqzqzqzq")
       expect(@ada.play("dog")).to eq false
     end
-    
+
   end
 
   describe "#total_score" do
@@ -63,6 +63,24 @@ describe Player do
     it "if the player has over 100 points returns true" do
       @ada.play("zqzqzqzqzqzq")
       expect(@ada.won?).to eq true
+    end
+  end
+
+  describe "#highest_scoring_word" do
+    it "returns the hightest scoring word the user has played" do
+      @ada.play("dog")
+      @ada.play("cat")
+      @ada.play("qqzzz")
+      expect(@ada.highest_scoring_word).to eq "qqzzz"
+    end
+  end
+
+  describe "#highest_word_score" do
+    it "returns the hightest scoring word score" do
+      @ada.play("dog")
+      @ada.play("cat")
+      @ada.play("qqzzz")
+      expect(@ada.highest_word_score).to eq 50
     end
   end
 
