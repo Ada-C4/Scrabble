@@ -27,11 +27,17 @@ module Scrabble
         #make a hash from the top scoring words that instead of containing scores for values, contains the length of the word.
         word_lengths_hash = {}
         top_scoring_words_hash.each do |k, v|
-          word_lengths_hash[] =
+          word_lengths_hash[k] = k.length
         end
 
-
-
+        #return the word associated with the shortest length
+        #if the value of the key is equal to the min, return just one
+        word_lengths_hash.each do |k,v|
+          if v == word_lengths_hash.values.min
+          puts "#{k}"
+          return k
+          end
+        end
     end
   end
 end

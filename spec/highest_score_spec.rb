@@ -5,8 +5,7 @@ describe Scrabble::ScrabbleGame do
   describe "self.highest_score_from" do
     before :each do
       @word_array1 = ["aaa", "bbb"]
-      @word_array2 = ["bb", "aaaaaa", "a", "b", "ki"]
-      @word_array3 = ["puppy", "huzzah", "cat", "baritone", "zxzx", "asteroid"]
+      @word_array2 = ["bb", "aaaaaa", "a", "b", "ki", "fg"]
     end
 
     it "Can look at this method with rspec" do
@@ -25,11 +24,12 @@ describe Scrabble::ScrabbleGame do
     #   expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to eq ({"bb"=>6, "aaaaaa"=>6, "ki"=>6})
     # end
 
-    it "If there is more than one item in the hash, return the shortest word that is listed first in the array" do
+    # it "Word lengths hash words as expected" do
+    #   expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to eq ({"bb"=>2, "aaaaaa"=>6, "ki"=>2})
+    # end
+
+    it "If there is more than word with a top score, return the shortest word that is listed first in the array" do
       expect(Scrabble::ScrabbleGame.highest_score_from(@word_array2)).to be == "bb"
     end
-
-
-    
   end
 end
