@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 module Scrabble
 
@@ -53,9 +53,8 @@ module Scrabble
       return word_score
     end
 
-# newgame = self.new
-#
-# newgame.selscore("cat")
+# newgame = Scrabble::ScrabbleGame.new("words")
+# newgame.score("hello")
 
   end
 end
