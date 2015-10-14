@@ -2,12 +2,12 @@ require "./lib/scrabble"
 
 module Scrabble
   class Player
-    attr_reader :name, :plays, :player_score
+    attr_reader :name, :plays
 
     def initialize(name)
       @name = name
       @plays = []
-      # @player_score = 0
+
     end
 
     def play(word)
@@ -33,9 +33,14 @@ module Scrabble
       else
         return false
       end
-
     end
 
+    def highest_scoring_word
+      ::Scrabble::Scrabble.highest_score_from(@plays)
+    end
 
+    def highest_word_score
+      ::Scrabble::Scrabble.score(highest_scoring_word)
+    end
   end
 end

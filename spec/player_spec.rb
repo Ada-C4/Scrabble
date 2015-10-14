@@ -50,4 +50,20 @@ describe Scrabble::Player do
       expect(@player.won?).to be_falsey
     end
   end
+  describe "#highest_scoring_word" do
+    it "returns the highest scoring word the user has played" do
+      @player.play("cat")
+      @player.play("crazy")
+      @player.play("orange")
+      expect(@player.highest_scoring_word).to eq "crazy"
+    end
+  end
+  describe "#highest_word_score" do
+    it "returns the highest scoring word score" do
+      @player.play("cat")
+      @player.play("crazy")
+      @player.play("orange")
+      expect(@player.highest_word_score).to eq 19
+    end
+  end
 end
