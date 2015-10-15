@@ -1,4 +1,4 @@
-  require "./lib/score.rb"
+require "./lib/score.rb"
 
 # describe Word do
 # @word = Scrabblegame.new
@@ -29,5 +29,5 @@ describe "score" do
     word = ""
     expect(Scrabble::Scrabblegame::score(word)).to eq 0
   end
-  
+
 end
