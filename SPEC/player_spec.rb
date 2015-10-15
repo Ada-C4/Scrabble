@@ -42,7 +42,7 @@ describe Scrabble::Player do
     it "returns true if player has over 100 points" do
       expect(@player.won?).to eq true
     end
-    it "returns false if player has won" do
+    it "play returns false if player has won" do
       expect(@player.play("word")).to eq false
     end
   end
@@ -67,14 +67,36 @@ describe Scrabble::Player do
     end
   end
 
-  describe "highest_word_score" do
+  describe "highest_scoring_word" do
     before :each do
       @player.play("star")
       @player.play("suns")
       @player.play("dog")
     end
-    it "returns 5 as the highest word score when star, suns, dog are played" do
-      expect(@player.highest_word_score).to eq 5
+    it "returns dog as the highest scoring word when star, suns, dog are played" do
+      expect(@player.highest_scoring_word).to eq "dog"
+    end
+  end
+
+  describe "highest_scoring_word" do
+    before :each do
+      @player.play("zoo")
+      @player.play("ffff")
+      @player.play("kite")
+    end
+    it "returns ffff as the highest scoring word when zoo, ffff, kite are played" do
+      expect(@player.highest_scoring_word).to eq "ffff"
+    end
+  end
+
+  describe "highest_word_score" do
+    before :each do
+      @player.play("zoo")
+      @player.play("ffff")
+      @player.play("kite")
+    end
+    it "returns 16 as the highest word score when zoo, ffff, and kite are played" do
+      expect(@player.highest_word_score).to eq 16
     end
   end
 end
