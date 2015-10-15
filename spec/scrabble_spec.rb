@@ -2,9 +2,9 @@ require "./lib/scrabble"
 
 describe Scrabble do
   before :each do
-    @scrabble = Scrabble.new
+    @scrabble = Scrabble::Scrabble.new
   end
-  it 'does something' do
+  it "does something" do
     expect(@scrabble).to be_an_instance_of Scrabble
   end
 
