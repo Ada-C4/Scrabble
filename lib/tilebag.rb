@@ -20,6 +20,10 @@ module Scrabble
       return letters
     end
 
+    def tiles_remaining
+      @tiles.length
+    end
+
   end
 
 

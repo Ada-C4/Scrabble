@@ -40,6 +40,17 @@ describe Scrabble do
       end
     end
 
+    describe "#tiles_remaining" do
+      it "returns the number of tiles remaining in the bag" do
+        @tilebag.draw_tiles(5)
+        @tilebag.draw_tiles(4)
+        @tilebag.draw_tiles(3)
+        @tilebag.draw_tiles(1)
+        @tilebag.draw_tiles(10)
+        expect(@tilebag.tiles_remaining).to eq(85)
+      end
+    end
+
 
   end
 end
