@@ -2,7 +2,6 @@ require "./lib/scrabble.rb"
 
 describe Scrabble::Scrabble do
 
-
   describe "self.score(word)" do
     it "returns 1 for A" do
       expect(Scrabble::Scrabble.score("A")).to eq 1
@@ -25,6 +24,12 @@ describe Scrabble::Scrabble do
     it "returns clovers from [zoo, clovers, to, rotates]" do
       expect(Scrabble::Scrabble.highest_score_from(["zoo", "clovers", "to", "rotates"])).to eq "clovers"
     end
+    it "returns zzzzzz from [aaaaag, zzzzzz, zzzzzx]" do
+      expect(Scrabble::Scrabble.highest_score_from(["aaaaaag", "zzzzzz", "zzzzzx"])).to eq "zzzzzz"
+    end
+    it "returns aaaaaag from [aaaaag, zzzzzx]" do
+      expect(Scrabble::Scrabble.highest_score_from(["aaaaaag", "zzzzzx"])).to eq "aaaaaag"
+    end
     it "returns star from [star, suns, real]" do
       expect(Scrabble::Scrabble.highest_score_from(["star", "suns", "real"])).to eq "star"
     end
@@ -32,5 +37,4 @@ describe Scrabble::Scrabble do
       expect(Scrabble::Scrabble.highest_score_from(["sun", "to", "star", "suns"])).to eq "star"
     end
   end
-
 end
