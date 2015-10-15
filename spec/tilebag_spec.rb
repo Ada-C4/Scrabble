@@ -14,5 +14,14 @@ describe Scrabble::TileBag do
       expect(@tilebag.tiles.length).to eq 98
     end
   end
+  describe "#draw_tiles(num)" do
+    it "tests that #draw_tiles(num) actually returns an array" do
+      expect(@tilebag.draw_tiles(0)).to eq []
+    end
+    it "returns 2 random tiles as an array and subtracts those tiles from the tilebag" do
+      expect(@tilebag.draw_tiles(2).length).to eq 2
+      expect(@tilebag.tiles.length).to eq 96
+    end
+  end
 
 end
