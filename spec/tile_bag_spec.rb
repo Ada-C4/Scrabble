@@ -35,4 +35,16 @@ describe TileBag do
       expect(@tile_barf.tile_bag.length).to eq sum
     end
   end
+
+  describe "#draw_tiles" do
+    it "removes num random tiles from tile bag" do
+      @tile_barf.make_tiles
+      expect(@tile_barf.draw_tiles(1).length).to eq 1
+    end
+
+    it "removes random tiles from tile bag" do
+      @tile_barf.make_tiles
+      expect(@tile_barf.draw_tiles(7)).not_to eq @tile_barf.draw_tiles(7)
+    end
+  end
 end

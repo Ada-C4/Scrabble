@@ -1,5 +1,5 @@
 class TileBag
-  attr_accessor :tile_hash, :tile_bag
+  attr_accessor :tile_hash, :tile_bag, :tile_tray
   def initialize
     @tile_hash = {
       A: 9,
@@ -30,6 +30,7 @@ class TileBag
       Z: 1
     }
     @tile_bag = []
+    @tile_tray = []
   end
 
   def make_tiles
@@ -43,8 +44,11 @@ class TileBag
   end
 
   def draw_tiles(num)
-    new_tiles = @tile_bag.num.times do
-    @tile_bag[rand(0..@tile_bag.length)].pop
-
+    tile_tray = []
+    num.times do
+      new_tile = @tile_bag.shift[rand(0..@tile_bag.length)]
+      tile_tray.push(new_tile)
+    end
+    return tile_tray
   end
 end
