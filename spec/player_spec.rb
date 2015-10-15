@@ -1,5 +1,6 @@
 require "./lib/player.rb"
 require "./lib/scrabble.rb"
+require "./lib/tilebag.rb"
 
 describe Scrabble do
   describe Scrabble::Player do
@@ -90,6 +91,12 @@ describe Scrabble do
       end
     end
 
+    describe "#tiles" do
+      it "returns a collection of tiles that the player can play" do
+        expect(@player.tiles.length).to eq(0)
+        expect(@player.tiles).to be_an(Array)
+      end
+    end
 
 
   end
