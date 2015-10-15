@@ -32,11 +32,7 @@ module Scrabble
     end
 
     def won?
-      if @total > 100
-        true
-      else
-        false
-      end
+      @total > 100
     end
 
   end
