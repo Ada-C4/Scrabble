@@ -77,7 +77,7 @@ describe Scrabble::Player do
       expect(@player.highest_scoring_word).to eq "ffff"
     end
   end
-  
+
   describe "highest word score" do
   before :each do
     @player.play("star")
@@ -99,4 +99,13 @@ end
       expect(@player.highest_word_score).to eq 16
     end
   end
+
+  describe "tiles and draw_tiles(tile_bag)" do
+    it "files tiles array to 7 letters" do
+      tile_bag = Scrabble::TileBag.new
+      @player.draw_tiles(tile_bag)
+      expect(@player.tiles.length).to eq 7
+    end
+  end
+
 end

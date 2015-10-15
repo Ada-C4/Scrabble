@@ -2,9 +2,9 @@ require 'player.rb'
 
 module Scrabble
   class TileBag
-    attr_reader :tiles
+    attr_reader :tilebag
     def initialize
-      @tiles = %w(A A A A A A A A A
+      @tilebag = %w(A A A A A A A A A
                   B B
                   C C
                   D D D D
@@ -35,14 +35,14 @@ module Scrabble
     def draw_tiles(num)
       tiles_array=[]
       num.times do
-        tile = @tiles.delete_at(rand(@tiles.length))
+        tile = @tilebag.delete_at(rand(@tilebag.length))
         tiles_array << tile
       end
       return tiles_array
     end
 
     def tiles_remaining
-      return @tiles.length
+      return @tilebag.length
     end
   end
 end

@@ -18,9 +18,9 @@ describe Scrabble::TileBag do
     end
 
     it "takes away 7 tiles from the tilebag" do
-      num_tiles_in_bag = @tilebag.tiles.length
+      num_tiles_in_bag = @tilebag.tilebag.length
       @tilebag.draw_tiles(7)
-      expect(@tilebag.tiles.length).to eq (num_tiles_in_bag - 7)
+      expect(@tilebag.tilebag.length).to eq (num_tiles_in_bag - 7)
     end
   end
 
