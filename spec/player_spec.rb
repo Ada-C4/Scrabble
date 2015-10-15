@@ -31,10 +31,42 @@ describe Scrabble::Player do
     it "adds a single word to the empty @words_played array" do
       expect(@bob.play_word(@word)).to eq ["test"] #changed this line to refer to instance
     end
+  end
 
-    #THIS ISNT WORKING NOW. Do different test or figure out how to make this work.
-    # it "adds additional words to @words_played" do
-    #   expect(@bob.play(@word)).to eq ["test", "test"]
-    # end
+  describe "play_word if already won" do
+    before :each do
+      @bob.player_score = 110
+      @word = "test"
+    end
+    it "Tells you that player won if that is the case" do
+      expect(@bob.play_word(@word)).to eq "player won"
+    end
+  end
+
+  describe "player_score" do
+    before :each do
+      @bob.words_played = ["aa", "bb", "zz"] #28 total
+    end
+    it "Sums the scores from @words_played" do
+      expect(@bob.total_score).to eq 28
+    end
+  end
+
+  describe "highest_scoring_word" do
+    before :each do
+      @bob.words_played = ["aa", "jgjg", "zz"]
+    end
+    it "Returns the highest scoring word" do
+      expect(@bob.highest_scoring_word).to eq "zz"
+    end
+  end
+
+  describe "highest_word_score" do
+    before :each do
+      @bob.words_played = ["aa", "jgjg", "zz"]
+    end
+    it "Returns the highest scoring word's score" do
+      expect(@bob.highest_word_score).to eq 20
+    end
   end
 end
