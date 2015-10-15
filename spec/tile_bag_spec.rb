@@ -1,4 +1,5 @@
 require './lib/tile_bag.rb'
+require 'pry'
 
 describe TileBag do
   before :each do
@@ -12,6 +13,26 @@ describe TileBag do
 
     it "expect there to be the correct number of letters" do
       expect(@tile_barf.tile_hash[:J]).to eq 1
+    end
+  end
+
+  describe "#make_tiles" do
+    it "creates and array of tiles with 'A' in the first position" do
+      @tile_barf.make_tiles
+      expect(@tile_barf.tile_bag[0]).to eq "A"
+    end
+
+    it "ensures the last index of tile_bag is z" do
+      @tile_barf.make_tiles
+      expect(@tile_barf.tile_bag[-1]).to eq "Z"
+    end
+
+    it "creates an array that is the correct length" do
+      @tile_barf.make_tiles
+      count = @tile_barf.tile_hash.values
+      sum = 0
+      count.each { |item| sum += item }
+      expect(@tile_barf.tile_bag.length).to eq sum
     end
   end
 end
