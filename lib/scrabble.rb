@@ -43,10 +43,10 @@ module Scrabble
       highest_score = scores.keys.sort[-1]
       if scores[highest_score].length > 1
         best_word = scores[highest_score].sort_by { |x| x.length }
-        puts best_word[0]
+        best_word[0]
       else
         return scores[highest_score]
       end
     end
   end
-end  
+end

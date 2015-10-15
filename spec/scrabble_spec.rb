@@ -3,9 +3,7 @@ require "./lib/scrabble"
 describe Scrabble do
   before :each do
     @scrabble = Scrabble::Scrabble.new
-  end
-  it "does something" do
-    expect(@scrabble).to be_an_instance_of Scrabble
+
   end
 
   describe "#letter_score" do
@@ -42,7 +40,7 @@ describe Scrabble do
 
   describe "#highest_word_score" do
     it "call that index on word_array" do
-    expect(@scrabble.highest_word_score("best, Harte")).to eq "kitty"
+    expect(@scrabble.highest_word_score("aei, b, e")).to eq "e"
     end
   end
 end
