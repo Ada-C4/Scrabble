@@ -10,7 +10,14 @@ module Scrabble
     end
 
     def draw_tiles(num)
-      
+      @tiles.shuffle!
+      letters = []
+      if num > 0 && num < 7
+        num.times do
+          letters.push(@tiles.pop)
+        end
+      end
+      return letters
     end
 
   end

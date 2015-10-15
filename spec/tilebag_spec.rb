@@ -30,13 +30,13 @@ describe Scrabble do
 
       it "returns an array of letters of num length" do
         letters_drawn = @tilebag.draw_tiles(5)
-        expect(letters_drawn).to be(Array)
+        expect(letters_drawn).to be_an(Array)
         expect(letters_drawn.length).to eq(5)
       end
 
       it "returns an error if num is not between 0 and 7" do
-        expect(@tilebag.draw_tiles(-1)).to be([])
-        expect(@tilebag.draw_tiles(10)).to be([])
+        expect(@tilebag.draw_tiles(-1)).to eq([])
+        expect(@tilebag.draw_tiles(10)).to eq([])
       end
     end
 
