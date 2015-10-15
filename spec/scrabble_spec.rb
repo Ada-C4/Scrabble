@@ -1,14 +1,14 @@
-require "./lib/scrabble_class.rb"
+ require "./lib/scrabble_class.rb"
 
-describe Scrabble do
+describe Scrabble::Scrabble do
 
-  describe  "letter?" do
+  describe  "#letter?" do
    it "returns nil input is not a letter" do
    expect(Scrabble::Scrabble.letter?(9)).to eq nil
     end
   end
 
-  describe "score" do
+  describe "#score" do
     it "return a score 9 for the word 'apple'" do
       expect(Scrabble::Scrabble.score("apple")).to equal 9
     end
@@ -21,7 +21,7 @@ describe Scrabble do
   end
 
 
-  describe "letter_value" do
+  describe "#letter_value" do
     it "return the value of the letter 'A'" do
       expect(Scrabble::Scrabble.letter_value("a")).to eq(1)
     end
@@ -45,7 +45,7 @@ describe Scrabble do
     end
   end
 
-  describe ".highest_score_from" do
+  describe "#highest_score_from" do
 
     it 'only includes strings' do
       word_array = ["aaa", "bbb", "zzz", 9]
