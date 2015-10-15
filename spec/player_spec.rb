@@ -35,12 +35,18 @@ describe Scrabble do
         expect(@player.play("a")).to be(false)
       end
 
+      it "only accepts letter characters in a word" do
+        expect(@player.play("abc1")).to be(false)
+        expect(@player.plays).not_to include("abc1") 
+      end
+
       it "adds the input word to the plays Array" do
         @player.play("hello")
         expect(@player.plays).to eq(["hello"])
         @player.play("dog")
         expect(@player.plays).to eq(["hello", "dog"])
       end
+
     end
 
     describe "#total_score" do
