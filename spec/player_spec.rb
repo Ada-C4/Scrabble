@@ -19,6 +19,11 @@ describe Scrabble::Player do
     it "returns an empty array of words at the beginning of the game" do
       expect(@player.plays).to eq []
     end
+    it "returns an array full of words" do
+      @player.play("oranges")
+      @player.play("stirred")
+      expect(@player.plays).to eq ["oranges", "stirred"]
+    end
   end
   describe "#play(word)" do
     it "adds the played word to the @plays array" do
