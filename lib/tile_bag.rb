@@ -46,8 +46,9 @@ class TileBag
   def draw_tiles(num)
     tile_tray = []
     num.times do
-      new_tile = @tile_bag.shift[rand(0..@tile_bag.length)]
-      tile_tray.push(new_tile)
+      random_num = rand(0..@tile_bag.length)
+      tile_tray.push(@tile_bag[random_num])
+      @tile_bag.shift(random_num)
     end
     return tile_tray
   end

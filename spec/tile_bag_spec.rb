@@ -46,5 +46,10 @@ describe TileBag do
       @tile_barf.make_tiles
       expect(@tile_barf.draw_tiles(7)).not_to eq @tile_barf.draw_tiles(7)
     end
+
+    it "does not return nil" do
+      @tile_barf.make_tiles
+      expect(@tile_barf.draw_tiles(1)).not_to eq [nil]
+    end
   end
 end
