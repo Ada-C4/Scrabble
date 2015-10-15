@@ -15,5 +15,9 @@ module Scrabble
     def draw_tiles(num)
       @tiles.pop(num)
     end
+
+    def tiles_remaining
+      @tiles.length
+    end
   end
 end

@@ -23,5 +23,10 @@ describe Scrabble::TileBag do
       expect(@tilebag.tiles.length).to eq 96
     end
   end
-
+  describe "#tiles_remaining" do
+    it "returns 88 of tiles remaining after removing 10 tiles" do
+      @tilebag.draw_tiles(10)
+      expect(@tilebag.tiles_remaining).to eq 88
+    end
+  end
 end
