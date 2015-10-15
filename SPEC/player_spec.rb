@@ -101,9 +101,17 @@ end
   end
 
   describe "tiles and draw_tiles(tile_bag)" do
-    it "files tiles array to 7 letters" do
-      tile_bag = Scrabble::TileBag.new
-      @player.draw_tiles(tile_bag)
+    before :each do
+      @tile_bag = Scrabble::TileBag.new
+    end
+    it "fills tiles array to 7 letters when tile array is empty" do
+      @player.draw_tiles(@tile_bag)
+      expect(@player.tiles.length).to eq 7
+    end
+    it "adds 5 tiles to tile array when tile array has 2 letters" do
+      @player.tiles.push("a")
+      @player.tiles.push("p")
+      @player.draw_tiles(@tile_bag)
       expect(@player.tiles.length).to eq 7
     end
   end
