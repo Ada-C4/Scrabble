@@ -29,5 +29,9 @@ describe "score" do
     word = ""
     expect(Scrabble::Scrabblegame::score(word)).to eq 0
   end
+  it "checks that 50 points are added to an 8 letter word" do
+    word = "flapjack"
+    expect(Scrabble::Scrabblegame::score(word)).to eq 76
+  end
 
 end
