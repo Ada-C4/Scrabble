@@ -10,7 +10,6 @@ describe Scrabble::Player do
     @player2.play("toast") # toast = 5
     @player2.play("hand") # hand = 8
     @player3.total = 101
-
   end
 
   describe ".new" do
@@ -72,7 +71,7 @@ describe Scrabble::Player do
 
   describe "#highest_word_score" do
     it "returns the highest scoring word score" do
-      expect(@player2.highest_word_score).to eq 8 
+      expect(@player2.highest_word_score).to eq 8
     end
   end
 
