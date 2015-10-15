@@ -7,23 +7,33 @@ describe Scrabble::Player do
   end
 
   describe ".new" do
-    it "creates a new instance of a player" do
-      # use expect to
-      # we set @chair = Chair.new, this is why we expect @chair to be an instance of Chair
-      # be_an_instance_of is a keyword
+    it "Creates a new instance of a player" do
       expect(@bob).to be_an_instance_of Scrabble::Player
     end
   end
 
   describe "name" do
-    it "calls the name initialized at the beginning of the game" do
+    it "Returns the name initialized at the beginning of the game" do
     expect(@bob.name).to eq "Bob"
     end
   end
 
-describe "plays" do
-  it "adds a word to the @plays array" do
-    word = "test"
-    expect(Scrabble::Player::play(word)).to eq "test"
+  describe "plays" do
+    it "Returns an empty array when the player has not played an words (@plays)" do
+      expect(@bob.plays).to eq []
+    end
+  end
+
+  describe "play" do
+    before :each do
+      @word = "test"
+    end
+    it "adds a single word to the empty @plays array" do
+      expect(@bob.play(@word)).to eq ["test"] #changed this line to refer to instance
+    end
+    #THIS ISNT WORKING NOW. Do different test or figure out how to make this work.
+    it "adds additional words to @plays" do
+      expect(@bob.play(@word)).to eq ["test", "test"]
+    end
   end
 end

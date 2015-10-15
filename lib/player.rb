@@ -1,7 +1,7 @@
 require "./lib/score.rb"
 require "./lib/highest_score.rb"
-#initialize(name): Called when you use Player.new, sets up an instance with the instance variable @name assigned
-#name: returns the @name instance variable
+#DONEinitialize(name): Called when you use Player.new, sets up an instance with the instance variable @name assigned
+#DONEname: returns the @name instance variable
 #plays: returns an Array of the words played by the player
 #play(word): Adds the input word to the plays Array
 # Returns false if player has already won
@@ -15,34 +15,32 @@ module Scrabble
   class Player
     def initialize(name)
       @name = name.capitalize
+      @plays = []
     end
 
     def name
-      return @name
+      @name
     end
 
-    # def play(word)
-    #   @plays = []
-    #   @plays.push(word)
-    #   return @plays
-        # if won?
-        #   return false
-        # don't add word into history
-    # end
+    def plays
+      @plays
+    end
 
-    # def play(word)
-    # end
-  #
-  #   def total_score
+    def play(word)
+      @plays.push(word)
+      return @plays
+        if won?
+          return false
+        # don't add word into history if you've won
+        end
+    end
 
+    def total_score
+    end
 
-  #
-  #   end
-  #
-  #   def won?
-  #     if total_score > 100
-  #     end
-  #   end
+    def won?
+      if total_score > 100
+      end
+    end
   end
 end
-# end
