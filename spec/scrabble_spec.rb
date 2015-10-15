@@ -1,4 +1,4 @@
-require "./lib/scrabble"
+require "./lib/scrabble_master"
 
 describe Scrabble do
   describe "self.score(letter)" do
