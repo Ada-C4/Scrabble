@@ -70,6 +70,12 @@ describe Scrabble::Player do
     end
   end
 
+  describe "#highest_word_score" do
+    it "returns the highest scoring word score" do
+      expect(@player2.highest_word_score).to eq 8 
+    end
+  end
+
 
 
 end

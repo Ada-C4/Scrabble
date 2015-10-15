@@ -24,9 +24,12 @@ module Scrabble
     end
 
     def highest_scoring_word
-
+      Scrabble.highest_score_from(@plays)
     end
 
+    def highest_word_score
+      Scrabble.score(highest_scoring_word)
+    end
 
     def won?
       if @total > 100
