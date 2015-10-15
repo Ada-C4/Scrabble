@@ -61,7 +61,7 @@ Create a `Scrabble` class with a minimum of 8 specs. The class should have the f
 ### Primary Requirements
 Create a `Player` class with a minimum of 11 specs. The class should have the following class and instance methods:
 
-- `self.new(name)`: creates a new instance with the instance variable `name` assigned
+- `#initialize(name)`: Called when you use `Player.new`, sets up an instance with the instance variable `name` assigned
 - `#name`: returns the `@name` instance variable
 - `#plays`: returns an Array of the words played by the player
 - `#play(word)`: Adds the input word to the `plays` Array
@@ -72,14 +72,13 @@ Create a `Player` class with a minimum of 11 specs. The class should have the fo
 - `#highest_word_score`: Returns the `highest_scoring_word` score.
 
 
-<!--
 ## Wave 3
 
 ### Primary Requirements
 Create a `TileBag` class with a minimum of 5 specs. It should have the following class and instance methods:
 
-- `self.new` creates an instance with a collection of default tiles
-- `#draw_tiles(n)` returns n number of random tiles, removes the tiles from the default set.
+- `#initialize` Called when you use `TileBag.new`, sets up an instance with a collection of default tiles
+- `#draw_tiles(num)` returns `num` number of random tiles, removes the tiles from the default set.
 - `#tiles_remaining` returns the number of tiles remaining in the bag
 
 Create specs for (minimum 2) and add to the `Player` class the following instance methods:
@@ -120,4 +119,3 @@ Beginning Tile Quantities:
 - Create a `Dictionary` class that includes a method for searching a list of words to determine if a given word is a valid word.
 - Create a `Board` class that has a matrix (array of arrays) of tile places. Check if a word can be played on a given tile place in a certain direction.
 - Include a minimum of 20 specs between the `Dictionary` and `Board` classes.
--->
