@@ -62,5 +62,9 @@ module ScrabbleMod
         return "Error message"
       end
     end
+
+    def tiles_remaining
+      return @total_tiles
+    end
   end
 end

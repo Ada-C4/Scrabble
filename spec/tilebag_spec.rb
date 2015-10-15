@@ -35,6 +35,10 @@ describe ScrabbleMod do
       end
     end
 
-    
+    describe "#tiles_remaining" do
+      it "returns num tiles remaining in bag" do
+        expect(@tilebag.tiles_remaining).to eq @tilebag.total_tiles
+      end
+    end
   end
 end
