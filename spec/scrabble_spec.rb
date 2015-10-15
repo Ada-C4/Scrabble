@@ -1,6 +1,7 @@
 require "./lib/scrabble"
 
 describe ScrabbleMod do
+  describe ScrabbleMod::Scrabble do
   before :each do
     @word = "abba"
     @number = 93
@@ -45,6 +46,7 @@ describe ScrabbleMod do
     end
 
   end
+end
 end
 
 describe "SCORES" do
