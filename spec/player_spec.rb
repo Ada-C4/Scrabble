@@ -19,7 +19,7 @@ describe Scrabble do
       end
       it "must have a string for the name" do
         expect(@player.name).to be_a(String)
-        expect(Scrabble::Player.new(3)).to raise_error
+        expect(Scrabble::Player.new(3).name).to eq("Player")
       end
     end
 

@@ -4,7 +4,12 @@ module Scrabble
     attr_reader :name, :plays, :highest_scoring_word
 
     def initialize(name)
-      @name = name
+      if name.class != String
+        puts "Invalid name. Must be a string. Now your name is Player."
+        @name = "Player"
+      else
+        @name = name
+      end
       @plays = []
       @highest_scoring_word = ""
     end
