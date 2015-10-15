@@ -6,6 +6,7 @@ describe Scrabble do
   describe Scrabble::Player do
     before :each do
       @player = Scrabble::Player.new("Jenn")
+      @tilebag = Scrabble::TileBag.new
     end
 
     describe ".new(name)" do
@@ -95,6 +96,18 @@ describe Scrabble do
       it "returns a collection of tiles that the player can play" do
         expect(@player.tiles.length).to eq(0)
         expect(@player.tiles).to be_an(Array)
+      end
+    end
+
+    describe "#draw_tiles(tile_bag)" do
+      it "removes the correct number of letters from the tile bag" do
+
+      end
+      it "adds the correct number of tiles to the player's tiles array"
+
+      end
+      it "removes the same letters from the bag that are added to the player's collection" do
+
       end
     end
 
