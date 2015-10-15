@@ -42,7 +42,7 @@ describe Scrabble do
 
   describe "#highest_word_score" do
     it "call that index on word_array" do
-    expect(@scrabble.highest_word_score("best, Cain, Harte")).to eq "kitty"
+    expect(@scrabble.highest_word_score("best, Harte")).to eq "kitty"
     end
   end
 end

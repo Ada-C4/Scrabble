@@ -30,23 +30,21 @@ class Scrabble
   end
 
   def highest_word_score(word_list)
-    score_array = []
-    word_array = []
-    word_list.split(",").each do |palabra|
-      word_array.push(palabra)
-      word_total = word_score(palabra)
-      score_array.push(word_total)
-      end
-    #return score_array
-    index_loc = score_array.each_with_index.max[1]
-    return word_array[index_loc]
-    return score_array
-    #call that index on word_array
-    #combo_array = score_array.zip(word_array).map(&:join)#.map.with_index { |e,i| e + score_array.to_s[i] }
-    #return score_array.sort_by{|s| s[1]}
+    scores = {}
 
+    word_list.split(",").each do |palabra|
+      #word_array.push(palabra)
+      word_total = word_score(palabra)
+      scores[word_total] ||= []
+      scores[word_total] << palabra
+    end
+
+    highest_score = scores.keys.sort[-1]
+    if scores[highest_score].length > 1
+      best_word = scores[highest_score].sort_by { |x| x.length }
+      puts best_word[0]
+    else
+      return scores[highest_score]
+    end
   end
 end
-    #we'll have an array of possible words we can play
-    # we want this method to go through each one and score them
-    # then compare each score and pick the highest
