@@ -57,7 +57,7 @@ module Scrabble
       if seven_letter_word != nil
         return seven_letter_word
       else
-        winning_word = high_scorers.min_by do |word|
+        high_scorers.min_by do |word|
   	      word.length
         end
       end

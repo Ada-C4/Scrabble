@@ -1,5 +1,3 @@
-require "./lib/scrabble"
-
 module Scrabble
   class Player
     attr_reader :name, :plays
@@ -7,7 +5,6 @@ module Scrabble
     def initialize(name)
       @name = name
       @plays = []
-
     end
 
     def play(word)
@@ -21,7 +18,7 @@ module Scrabble
     def total_score
       player_score = 0
       @plays.each do |word|
-        player_score += ::Scrabble::Scrabble.score(word)
+        player_score += Scrabble.score(word)
       end
 
       return player_score
@@ -36,11 +33,11 @@ module Scrabble
     end
 
     def highest_scoring_word
-      ::Scrabble::Scrabble.highest_score_from(@plays)
+      Scrabble.highest_score_from(@plays) if @plays.size != 0
     end
 
     def highest_word_score
-      ::Scrabble::Scrabble.score(highest_scoring_word)
+      Scrabble.score(highest_scoring_word) if @plays.size != 0
     end
   end
 end

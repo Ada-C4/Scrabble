@@ -1,5 +1,4 @@
-require "./lib/player"
-require "./lib/scrabble"
+require "./lib/scrabble_master"
 
 describe Scrabble::Player do
   before :each do
@@ -56,6 +55,9 @@ describe Scrabble::Player do
     end
   end
   describe "#highest_scoring_word" do
+    it "returns nil if @plays is empty" do
+      expect(@player.highest_scoring_word).to be_nil
+    end
     it "returns the highest scoring word the user has played" do
       @player.play("cat")
       @player.play("crazy")
@@ -64,6 +66,9 @@ describe Scrabble::Player do
     end
   end
   describe "#highest_word_score" do
+    it "returns nil if @plays is empty" do
+      expect(@player.highest_word_score).to be_nil
+    end
     it "returns the highest scoring word score" do
       @player.play("cat")
       @player.play("crazy")
