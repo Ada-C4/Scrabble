@@ -37,7 +37,9 @@ describe Scrabble do
 
       it "only accepts letter characters in a word" do
         expect(@player.play("abc1")).to be(false)
-        expect(@player.plays).not_to include("abc1") 
+        expect(@player.plays).not_to include("abc1")
+        expect(@player.play("happy?")).to be(false)
+        expect(@player.play("tHis iS a sENtence")).to be(false)
       end
 
       it "adds the input word to the plays Array" do

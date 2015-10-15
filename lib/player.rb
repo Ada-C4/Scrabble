@@ -15,7 +15,11 @@ module Scrabble
     end
 
     def play(word)
-      if won?
+      all_char = true
+      word.each_char do |char|
+        all_char &&= ('a'..'z').include?(char.downcase)
+      end
+      if won? || all_char == false
         return false
       end
       @plays.push(word)
