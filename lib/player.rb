@@ -1,46 +1,48 @@
+require 'pry'
 require "./lib/score.rb"
 require "./lib/highest_score.rb"
-#DONEinitialize(name): Called when you use Player.new, sets up an instance with the instance variable @name assigned
-#DONEname: returns the @name instance variable
-#words_played: returns an Array of the words played by the player
-#play(word): Adds the input word to the words_played Array
-# Returns false if player has already won
-#total_score: Sums up and returns the score of the players words
-#won?: If the player has over 100 points, returns true, otherwise returns 'false'
-#highest_scoring_word: Returns the highest scoring word the user has played.
-#highest_word_score: Returns the highest_scoring_word score.
-#
+
 module Scrabble
 
   class Player
+    attr_accessor :name, :words_played, :player_score
+
     def initialize(name)
       @name = name.capitalize
       @words_played = []
-    end
-
-    def name
-      @name
-    end
-
-    def words_played
-      @words_played
+      @player_score = 0
     end
 
     def play_word(word)
-      @words_played.push(word)
-      return @words_played
-        if won?
-          return false
-        # don't add word into history if you've won
-        end
-    end
-
-    def total_score
+      if won?
+        puts "You've won!"
+        return "player won"
+      else
+        @words_played.push(word)
+        return @words_played
+      end
     end
 
     def won?
-      if total_score > 100
+      if @player_score > 100
+        return true
       end
+    end
+
+    def total_score
+      sum = 0
+      @words_played.each do |word|
+        sum += (ScrabbleGame.score(word))
+      end
+      sum
+    end
+
+    def highest_scoring_word
+      ScrabbleGame.highest_score_from(@words_played)
+    end
+
+    def highest_word_score
+      ScrabbleGame.score(highest_scoring_word)
     end
   end
 end
