@@ -15,11 +15,11 @@ end
 describe "score" do
   it "checks the value of the word 'puppy'" do
     word = "puppy"
-    expect(Scrabble::Scrabblegame::score(word)).to eq 14
+    expect(Scrabble::Scrabblegame.score(word)).to eq 14
   end
   it "checks the value of the word 'huzzah'" do
     word = "huzzah"
-    expect(Scrabble::Scrabblegame::score(word)).to eq 30
+    expect(Scrabble::Scrabblegame.score(word)).to eq 30
   end
   it "checks the value of the word 'cat'" do
     word = "cat"
