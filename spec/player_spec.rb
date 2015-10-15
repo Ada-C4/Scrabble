@@ -17,10 +17,6 @@ describe Scrabble do
       it "assigns player name" do
         expect(@player.name).to eq("Jenn")
       end
-      it "must have a string for the name" do
-        expect(@player.name).to be_a(String)
-        expect(Scrabble::Player.new(3).name).to eq("Player")
-      end
     end
 
     describe "#plays" do
@@ -35,20 +31,12 @@ describe Scrabble do
         expect(@player.play("a")).to be(false)
       end
 
-      it "only accepts letter characters in a word" do
-        expect(@player.play("abc1")).to be(false)
-        expect(@player.plays).not_to include("abc1")
-        expect(@player.play("happy?")).to be(false)
-        expect(@player.play("tHis iS a sENtence")).to be(false)
-      end
-
       it "adds the input word to the plays Array" do
         @player.play("hello")
         expect(@player.plays).to eq(["hello"])
         @player.play("dog")
         expect(@player.plays).to eq(["hello", "dog"])
       end
-
     end
 
     describe "#total_score" do
@@ -97,6 +85,7 @@ describe Scrabble do
         @player.play("brown")
         expect(@player.highest_word_score).to eq(60)
         @player2 = Scrabble::Player.new("Jen")
+
         expect(@player2.highest_word_score).to eq(0)
       end
     end
