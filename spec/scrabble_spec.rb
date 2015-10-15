@@ -1,7 +1,7 @@
 require './lib/scrabble.rb'
 
 describe Scrabble do
-  describe Scrabble do
+  describe Scrabble::Scrabble do
 
     describe ".score(word)" do
       it "returns the correct point value for a single letter" do
