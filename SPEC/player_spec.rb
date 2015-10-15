@@ -69,17 +69,6 @@ describe Scrabble::Player do
 
   describe "highest_scoring_word" do
     before :each do
-      @player.play("star")
-      @player.play("suns")
-      @player.play("dog")
-    end
-    it "returns dog as the highest scoring word when star, suns, dog are played" do
-      expect(@player.highest_scoring_word).to eq "dog"
-    end
-  end
-
-  describe "highest_scoring_word" do
-    before :each do
       @player.play("zoo")
       @player.play("ffff")
       @player.play("kite")
@@ -88,6 +77,17 @@ describe Scrabble::Player do
       expect(@player.highest_scoring_word).to eq "ffff"
     end
   end
+  
+  describe "highest word score" do
+  before :each do
+    @player.play("star")
+    @player.play("suns")
+    @player.play("dog")
+  end
+  it "returns 5" do
+    expect(@player.highest_word_score).to eq 5
+  end
+end
 
   describe "highest_word_score" do
     before :each do
