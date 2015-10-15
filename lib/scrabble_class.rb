@@ -34,7 +34,6 @@ module Scrabble
     end
 
 
-
     def self.highest_score_from(array_of_words)
       max_score = 0
       max_word = ""
