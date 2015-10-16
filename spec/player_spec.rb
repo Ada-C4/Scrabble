@@ -88,7 +88,6 @@ describe Player do
     it "returns a collection of letters for the player" do
       @ada.assign_bag_to_player(TileBag.new)
       expect(@ada.tiles.length).to eq 7
-
     end
   end
 

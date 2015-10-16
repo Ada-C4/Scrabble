@@ -44,6 +44,8 @@ describe TileBag do
 
     it "removes random tiles from tile bag" do
       #@tile_barf.make_tiles
+      #@tile_barf.tile_tray = []
+      #binding.pry
       expect(@tile_barf.draw_tiles(7)).not_to eq @tile_barf.draw_tiles(7)
     end
 

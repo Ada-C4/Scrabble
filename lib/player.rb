@@ -49,8 +49,9 @@ class Player
   end
 
   def tiles
-    @bag.draw_tiles(7-@bag.tile_tray.length)
-    return @bag.tile_tray
+    #binding.pry
+    @tile_tray = @bag.draw_tiles(7-@tile_tray.length)
+    return @tile_tray
   end
 
 end
