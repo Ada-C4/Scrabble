@@ -1,3 +1,6 @@
+
+# - A `Scrabble` class which contains some sort of data structure to store the **individual letter scores** listed below.
+# this is a test
 module Scrabble
   class Scrabble
     def self.letter_score(letter)
@@ -32,7 +35,6 @@ module Scrabble
       end
       return sum
     end
-
 
 
     def self.highest_score_from(array_of_words)
