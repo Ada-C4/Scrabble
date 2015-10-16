@@ -1,6 +1,7 @@
 require './lib/player_class.rb'
 require './lib/tilebag_class.rb'
 require './lib/scrabble_class.rb'
+require './lib/dictionary_class.rb'
 
 
 # minimum of 11 specs
@@ -83,10 +84,17 @@ describe Scrabble::Player do
       end
     end
     describe "draw_tiles" do
-      it "fills the total number of tiles avaliable to 7"do
+      it "fills the total number of tiles avaliable to 7" do
         @player1.draw_tiles(@bag)
         expect(@player1.tiles(@bag).length).to be == 7
       end
     end
 
+    describe "word_in_dictionary from dictionary class" do
+
+      it "should reject a non-word" do
+        expect(Scrabble::Dictionary.word_in_dictionary("ZZZZ")).to be_falsey
+      end
+
+    end
 end
