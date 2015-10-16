@@ -33,6 +33,17 @@ describe Scrabble::Player do
     end
   end
 
+  describe "play_word" do
+    before :each do
+      @word = "test"
+      @bob.words_played = ["porcupine", "bottle"]
+    end
+    it "adds an additional word a non-empty @words_played array" do
+      expect(@bob.play_word(@word)).to eq ["porcupine", "bottle", "test"] #changed this line to refer to instance
+    end
+  end
+
+
   describe "play_word if already won" do
     before :each do
       @bob.player_score = 110
@@ -61,6 +72,15 @@ describe Scrabble::Player do
     end
   end
 
+  describe "highest_scoring_word" do
+    before :each do
+      @bob.words_played = ["aaaaaa", "jgjg", "zz"]
+    end
+    it "Shorter words are considered higher scoring when there is a tie" do
+      expect(@bob.highest_scoring_word).to eq "zz"
+    end
+  end
+
   describe "highest_word_score" do
     before :each do
       @bob.words_played = ["aa", "jgjg", "zz"]
@@ -69,4 +89,15 @@ describe Scrabble::Player do
       expect(@bob.highest_word_score).to eq 20
     end
   end
+
+  describe "highest_word_score" do
+    before :each do
+      @bob.words_played = ["aa", "jgjg", "flapjack"]
+    end
+    it "Eight letter words get 50 extra points" do
+      expect(@bob.highest_word_score).to eq 76
+    end
+  end
+
+
 end
