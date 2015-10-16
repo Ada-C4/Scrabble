@@ -25,8 +25,10 @@ require './lib/tilebag.rb'
       it "does not likely draw the same letter array twice" do
         expect(@tilebag.draw_tiles(6)).not_to eq(@tilebag.draw_tiles(6))
       end
+      it "does not allow user to draw over 7 tiles" do
+        expect(@tilebag.draw_tiles(8)).to eq("Please draw seven or fewer tiles.")
+      end
     end
-
 
     describe "tiles_remaining" do
       it "returns the total number of tiles that remain after a Player" do

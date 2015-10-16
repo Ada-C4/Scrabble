@@ -51,19 +51,20 @@ module Scrabble
 # turn @quantity into an array, shuffle, pop, and return x amount of letters
 
     def draw_tiles(num)
+      if num > 7
+        return "Please draw seven or fewer tiles."
+      else
       letters_array = []
         num.times do
         letters_array.push(@quantity.keys.shuffle.pop)
         end
 
-# remove the letters above from the hash
-
         letters_array.each do |letter|
           @quantity[letter] -= 1
         end
 
-      return letters_array
-
+        return letters_array
+      end
     end
 
     def tiles_remaining
