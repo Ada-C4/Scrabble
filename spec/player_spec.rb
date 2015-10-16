@@ -87,7 +87,7 @@ describe Scrabble::Player do
 
   describe "#draw_tiles(tile_bag)" do
     it "fills tiles array until it has 7 letters from the given tile bag" do
-      @tilebag = TileBag.new
+      @tilebag = Scrabble::TileBag.new
       @player5.draw_tiles(@tilebag)
       expect(@player5.tiles.length).to eq 7
     end

@@ -7,13 +7,12 @@ S S T T T T T T U U U U V V W W X Y Y Z}
 
     attr_reader :tile_quantities, :tiles_remaining
     def initialize
-    @tile_quantities = STARTING_TILES.shuffle!
-    @tiles_remaining = @tile_quantities.length
+      @tile_quantities = STARTING_TILES.shuffle!
+      @tiles_remaining = @tile_quantities.length
     end
 
     def draw_tiles(num)
-      drawn_tiles = @tile_quantities.pop(num)
-      return drawn_tiles
+      @tile_quantities.pop(num)
     end
 
   end
