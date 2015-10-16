@@ -34,6 +34,7 @@ class TileBag
     self.make_tiles
   end
 
+#makes an instance of a tile_bag that initially includes all the letters possible in the game
   def make_tiles
     @tile_bag = []
    @tile_hash.each do |key, value|
@@ -44,6 +45,7 @@ class TileBag
     return @tile_bag
   end
 
+#returns an array of num (the parameter) new tiles drawn by choosing a random number for the tile_bag index
   def draw_tiles(num)
     new_tiles = []
     num.times do
@@ -54,6 +56,7 @@ class TileBag
     return new_tiles
   end
 
+#returns how many tiles are left in the tile_bag array
   def tiles_remaining
     return @tile_bag.length
   end

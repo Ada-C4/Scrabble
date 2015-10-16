@@ -86,7 +86,7 @@ describe Player do
 
   describe "#draw_tiles" do
     it "returns a collection of letters for the player" do
-      expect(@ada.draw_tiles(TileBag.new).length).to eq 7
+      expect(@ada.draw_tiles().length).to eq 7
     end
   end
 
