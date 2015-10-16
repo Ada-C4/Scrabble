@@ -39,10 +39,10 @@ module Scrabble
         word_score += value[letter]
       end
 
-          if letters.length == 8
-          word_score += 50
-          puts "BONUS! You used all seven letters! You get 50 extra points!"
-          end
+      if letters.length == 8
+      word_score += 50
+      puts "BONUS! You used all seven letters! You get 50 extra points!"
+      end
 
       return word_score
     end

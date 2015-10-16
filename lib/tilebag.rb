@@ -3,15 +3,6 @@ require './lib/player.rb'
 
 module Scrabble
 
-# DONE! Create a TileBag class with a minimum of 5 specs. It should have the following class and instance methods:
-# DONE! #initialize Called when you use TileBag.new, sets up an instance with a collection of default tiles
-# #draw_tiles(num) returns num number of random tiles, removes the tiles from the default set.
-# #tiles_remaining returns the number of tiles remaining in the bag
-# Create specs for (minimum 2) and add to the Player class the following instance methods:
-#
-# #tiles a collection of letters that the player can play (max 7)
-# #draw_tiles(tile_bag) fills tiles array until it has 7 letters from the given tile bag
-
   class TileBag
 
   attr_accessor :quantity
@@ -51,18 +42,23 @@ module Scrabble
 # turn @quantity into an array, shuffle, pop, and return x amount of letters
 
     def draw_tiles(num)
+      if num > 7
+        return []
+      else
       letters_array = []
         num.times do
         letters_array.push(@quantity.keys.shuffle.pop)
         end
-
         letters_array.each do |letter|
-          quantity.find
-
+          @quantity[letter] -= 1
         end
+        return letters_array
+      end
+    end
 
-      return letters_array
-
+    def tiles_remaining
+      sum = @quantity.values.inject(0) {|sum, value| sum + value}
+      sum
     end
   end
 end
