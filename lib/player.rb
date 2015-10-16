@@ -1,16 +1,18 @@
 require 'pry'
 require "./lib/score.rb"
 require "./lib/highest_score.rb"
+require "./lib/tilebag.rb"
 
 module Scrabble
 
   class Player
-    attr_accessor :name, :words_played, :player_score
+    attr_accessor :name, :words_played, :player_score, :tiles
 
     def initialize(name)
       @name = name.capitalize
       @words_played = []
       @player_score = 0
+      @tiles = []
     end
 
     def play_word(word)
@@ -43,6 +45,11 @@ module Scrabble
 
     def highest_word_score
       ScrabbleGame.score(highest_scoring_word)
+    end
+
+    def draw_tiles(tilebag)
+      num = 7 - @tiles.length
+      @tiles += (tilebag.draw_tiles(num))
     end
   end
 end

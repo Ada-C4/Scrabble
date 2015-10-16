@@ -4,6 +4,7 @@ require "./lib/player.rb"
 describe Scrabble::Player do
   before :each do
     @bob = Scrabble::Player.new("Bob")
+    @tilebag = Scrabble::TileBag.new
   end
 
   describe ".new" do
@@ -99,5 +100,41 @@ describe Scrabble::Player do
     end
   end
 
+  describe "tiles" do
+    it "Tiles is an instance variable is created on player instatiation" do
+      expect(@bob.tiles).to eq []
+    end
+  end
+  #
+  describe "draw_tiles" do
+    before :each do
+      @bob.draw_tiles(@tilebag)
+    end
+    it "Fills player's tiles array with the given number of tiles, starting from an empty @tiles" do
+      expect(@bob.tiles.length).to eq 7
+    end
+  end
 
+  describe "draw_tiles" do
+    before :each do
+      @bob.tiles = ["x", "x"]
+      @bob.draw_tiles(@tilebag)
+    end
+    it "Fills player's tiles array with the given number of tiles, starting from a non-empty @tile" do
+      expect(@bob.tiles.length).to eq 7
+    end
+    it "Removes the same number of tiles from the tile bag" do
+      expect(@tilebag.tiles_remaining).to eq 93
+    end
+  end
+
+  describe "draw_tiles" do
+    before :each do
+      @bob.tiles = ["x", "x", "x", "x", "x", "x", "x"]
+      @bob.draw_tiles(@tilebag)
+    end
+    it "@tiles remains the same if it is already full" do
+      expect(@bob.tiles).to eq ["x", "x", "x", "x", "x", "x", "x"]
+    end
+  end
 end

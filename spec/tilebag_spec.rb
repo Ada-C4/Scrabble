@@ -26,7 +26,7 @@ require './lib/tilebag.rb'
         expect(@tilebag.draw_tiles(6)).not_to eq(@tilebag.draw_tiles(6))
       end
       it "does not allow user to draw over 7 tiles" do
-        expect(@tilebag.draw_tiles(8)).to eq("Please draw seven or fewer tiles.")
+        expect(@tilebag.draw_tiles(8)).to eq []
       end
     end
 
