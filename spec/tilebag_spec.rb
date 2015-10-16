@@ -17,8 +17,9 @@ describe Scrabble::TileBag do
     it "returns num number of random tiles" do
       expect(@tilebag.draw_tiles(4).length).to eq 4
     end
-    it "removes the tiles from the default set" do
-
-    end
+    # it "removes the tiles from the default set" do
+    #   @tilebag.draw_tiles(4).values
+    #   expect(@tilebag.tile_quantities.values)
+    # end
   end
 end
