@@ -1,12 +1,14 @@
 module Scrabble
   class Player
-    attr_reader :name, :plays
-    attr_accessor :total
+    attr_reader :name, :plays, :tiles, :bag
+
     def initialize(name)
       @name = name
       @plays = []
-      @total = 0
+      @tiles = []
+      @bag = nil
     end
+
 
     def play(word)
       if won? == true
@@ -17,10 +19,11 @@ module Scrabble
     end
 
     def total_score
+      total = 0
       @plays.each do |word|
-        @total += Scrabble.score(word)
+        total += Scrabble.score(word)
       end
-      return @total
+      return total
     end
 
     def highest_scoring_word
@@ -32,11 +35,16 @@ module Scrabble
     end
 
     def won?
-      if @total > 100
-        true
-      else
-        false
+      total_score > 100
+    end
+
+    def draw_tiles(tile_bag)
+      @bag = tile_bag
+      until @tiles.length == 7 do
+        drawn_tile = @bag.draw_tiles(1)
+        @tiles.push(drawn_tile)
       end
+      return @tiles
     end
 
   end

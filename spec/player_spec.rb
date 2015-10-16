@@ -6,11 +6,11 @@ describe Scrabble::Player do
     @player2 = Scrabble::Player.new("andre")
     @player3 = Scrabble::Player.new("batman")
     @player4 = Scrabble::Player.new("spiderman")
+    @player5 = Scrabble::Player.new("superman")
     @player2.play("love") # love = 7
     @player2.play("toast") # toast = 5
     @player2.play("hand") # hand = 8
-    @player3.total = 101
-
+    @player3.play("zzzzzzzzzzz") # = 110
   end
 
   describe ".new" do
@@ -39,7 +39,7 @@ describe Scrabble::Player do
     it "adds the input word to the plays array" do
       expect(@player2.plays).to eq ["love", "toast", "hand"]
     end
-    it "returns false is player has already won" do
+    it "returns false if player has already won" do
       expect(@player3.play("word")).to eq false
     end
   end
@@ -59,7 +59,7 @@ describe Scrabble::Player do
       expect(@player2.won?).to eq false
     end
     it "returns false if player does not have over 100 points" do
-      @player4.total = 100
+      @player4.play("zzzzzzzzzz") #word = 100 points exactly
       expect(@player4.won?).to eq false
     end
   end
@@ -72,7 +72,24 @@ describe Scrabble::Player do
 
   describe "#highest_word_score" do
     it "returns the highest scoring word score" do
-      expect(@player2.highest_word_score).to eq 8 
+      expect(@player2.highest_word_score).to eq 8
+    end
+  end
+
+  describe "#tiles" do
+    it "returns the collection of letters that the player can play" do
+      expect(@player5.tiles).to be_an_instance_of Array
+    end
+    it "contains a maximum of 7 tiles" do
+      expect(@player5.tiles.length).to be <= 7
+    end
+  end
+
+  describe "#draw_tiles(tile_bag)" do
+    it "fills tiles array until it has 7 letters from the given tile bag" do
+      @tilebag = Scrabble::TileBag.new
+      @player5.draw_tiles(@tilebag)
+      expect(@player5.tiles.length).to eq 7
     end
   end
 
