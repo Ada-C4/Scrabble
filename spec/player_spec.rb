@@ -19,44 +19,44 @@ describe Scrabble::Player do
       expect(@player.plays).to eq []
     end
     it "returns an array with the played word" do
-      @player.create_mock({tiles: %w(o r a n g e s)})
+      @player.create_mock({tiles: %w(O R A N G E S)})
       @player.play("oranges")
-      expect(@player.plays).to eq ["oranges"]
+      expect(@player.plays).to eq ["ORANGES"]
     end
   end
   describe "#play(word)" do
     it "adds the played word to the @plays array" do
-      @player.create_mock({tiles: %w(w o r d a b c)})
-      expect(@player.play("word")).to eq ["word"]
+      @player.create_mock({tiles: %w(W O R D A B C)})
+      expect(@player.play("word")).to eq ["WORD"]
     end
     it "removes the played tiles from the @tiles array" do
-      @player.create_mock({tiles: %w(w o r d a b c)})
-      @player.play("word")
-      expect(@player.tiles).to eq ["a", "b", "c"]
+      @player.create_mock({tiles: %w(W O R D A B C)})
+      @player.play("WORD")
+      expect(@player.tiles).to eq ["A", "B", "C"]
     end
     it "returns false if player has already won" do
-      @player.create_mock({tiles: %w(o r a n g e s), plays: %w(stirred)})
+      @player.create_mock({tiles: %w(O R A N G E S), plays: %w(stirred)})
       @player.play("oranges")
       expect(@player.play("word")).to be_falsey
     end
     it "gives an error if try to play a word without the appropriate tiles" do
-      @player.create_mock({tiles: %w(o r a n g e p)})
+      @player.create_mock({tiles: %w(O R A N G E P)})
       expect{ @player.play("oranges") }.to raise_error(ArgumentError)
     end
   end
   describe "#total_score" do
     it "sums up and returns the total score of the players words" do
-      @player.create_mock({plays: %w(snack apple oranges)})
+      @player.create_mock({plays: %w(SNACK APPLE ORANGES)})
       expect(@player.total_score).to eq 11 + 9 + 58
     end
   end
   describe "#won?" do
     it "returns true if player has over 100 points" do
-      @player.create_mock({plays: %w(stirred oranges)})
+      @player.create_mock({plays: %w(STIRRED ORANGES)})
       expect(@player.won?).to be_truthy
     end
     it "returns false if player has under 100 points" do
-      @player.create_mock({plays: %w(cat dog)})
+      @player.create_mock({plays: %w(CAT DOG)})
       expect(@player.won?).to be_falsey
     end
   end
@@ -65,8 +65,8 @@ describe Scrabble::Player do
       expect(@player.highest_scoring_word).to be_nil
     end
     it "returns the highest scoring word the user has played" do
-      @player.create_mock({plays: %w(cat crazy orange)})
-      expect(@player.highest_scoring_word).to eq "crazy"
+      @player.create_mock({plays: %w(CAT CRAZY ORANGE)})
+      expect(@player.highest_scoring_word).to eq "CRAZY"
     end
   end
   describe "#highest_word_score" do
@@ -74,7 +74,7 @@ describe Scrabble::Player do
       expect(@player.highest_word_score).to be_nil
     end
     it "returns the highest scoring word score" do
-      @player.create_mock({plays: %w(cat crazy orange)})
+      @player.create_mock({plays: %w(CAT CRAZY ORANGE)})
       expect(@player.highest_word_score).to eq 19
     end
   end
@@ -84,9 +84,20 @@ describe Scrabble::Player do
     end
   end
   describe "#draw_tiles(tile_bag)" do
-    it "adds 7 tiles to the players tiles array" do
+    before :each do
       @tilebag = Scrabble::TileBag.new
+    end
+    it "draws 7 tiles" do
       expect(@player.draw_tiles(@tilebag).length).to eq 7
+    end
+    it "adds 7 tiles to the players tiles array" do
+      @player.draw_tiles(@tilebag)
+      expect(@player.tiles.length).to eq 7
+    end
+    it "adds 3 tiles to the players tiles array already containing 4 tiles" do
+      @player.create_mock({tiles: %w(W O R D)})
+      @player.draw_tiles(@tilebag)
+      expect(@player.tiles.length).to eq 7
     end
   end
 end

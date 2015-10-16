@@ -10,10 +10,11 @@ module Scrabble
 
     def draw_tiles(tile_bag)
       number = 7 - @tiles.length
-      tile_bag.draw_tiles(number)
+      @tiles += tile_bag.draw_tiles(number)
     end
 
     def play(word)
+      word = word.upcase
       if won?
         return false
       else
