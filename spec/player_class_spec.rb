@@ -2,9 +2,11 @@ require './lib/player_class.rb'
 
 # minimum of 11 specs
 describe Scrabble::Player do
+
     before :each do # (Before each thing I do, create a new player)
       @player1 = Scrabble::Player.new("Logan")
     end
+
     describe ".new" do
       it "creates a new instance of Player" do
         expect(@player1).to be_an_instance_of Scrabble::Player
@@ -48,12 +50,23 @@ describe Scrabble::Player do
         @player1.play("ZZZZZZZ")
         expect(@player1.won?).to eq true
       end
-      # it "returns true if the player has won" do
-      #   if @player1.total_score > 99
-      #     expect(@player1.won?).to be_truthy
-      #   end
+    end
+
+    describe "highest_scoring_word" do
+      it "returns the highest scoring word the user has played" do
+        @player1.play("HEY")
+        @player1.play("ZEBRA")
+        expect(@player1.highest_scoring_word).to eq "ZEBRA"
       end
     end
 
 
-#end
+    describe "highest_word_score" do
+      it "returns the highest score user has played" do
+        @player1.play("ZEBRA")
+        @player1.play("QUIZ")
+        expect(@player1.highest_word_score).to eq 22
+      end
+    end
+
+end

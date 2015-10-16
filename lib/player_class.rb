@@ -8,6 +8,8 @@ module Scrabble
       @name = name
       @played_words_array = []
       @total_score = 0
+      @high_score = 0
+      @high_scoring_word = "HEY"
     end
 
     def plays
@@ -20,7 +22,12 @@ module Scrabble
         return false
       else
         @played_words_array.push(word)  # add input word (parameter) to the plays array.
-        @total_score += Scrabble.score(word)# call the score method on the scrabble class and pass it (word)
+        word_score = Scrabble.score(word)# call the score method on the scrabble class and pass it (word)
+        @total_score += word_score
+        if word_score > @high_score
+          @high_scoring_word = word
+          @high_score = word_score
+        end
       end
     end
 
@@ -31,21 +38,35 @@ module Scrabble
     end
 
     def won?
+      # if the player has over 100 points, return true
+      # otherwise, return false
       if @total_score > 100
         return true
       else
         return false
       end
-      # if the player has over 100 points, return true
-      # otherwise, return false
     end
 
     def highest_scoring_word
-      # returns highest scoring word the user has played.
+      return @high_scoring_word
     end
 
     def highest_word_score
-      # returns the highest_scoring_word SCORE
+      return @high_score
     end
+
+    # and add to the `Player` class the following instance methods:
+
+    def tiles
+
+    end
+    # - `#tiles` a collection of letters that the player can play (max 7)
+
+    def draw_tiles(tile_bag)
+
+    end
+    # - `#draw_tiles(tile_bag)` fills tiles array until it has 7 letters from the given tile bag
+
+
   end
 end
