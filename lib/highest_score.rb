@@ -13,9 +13,6 @@ module Scrabble
           wordscore_hash[w] = score
         end
 
-        #find max value of a value in a hash
-        # wordscore_hash.max[0]
-
         #returns all keys with max value
         top_scoring_words_hash = {}
         wordscore_hash.each do |k, v|
