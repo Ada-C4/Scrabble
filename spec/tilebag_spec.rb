@@ -3,6 +3,7 @@ require "./lib/tilebag"
 describe Scrabble::TileBag do
   before :each do
     @tilebag1 = Scrabble::TileBag.new
+    @tilebag2 = Scrabble::TileBag.new
   end
 
   describe "#initialize" do
@@ -17,16 +18,16 @@ describe Scrabble::TileBag do
 
   describe "#draw_tiles" do
     it "returns the specifed number of random tiles" do
-      expect(@tilebag1.draw_tiles(4).length).to eq 4
+      expect(@tilebag2.draw_tiles(4).length).to eq 4
     end
     it "removes the tiles from the default set" do
-      expect(@tilebag1.tile_quantities.length).to eq 94
+      expect(@tilebag2.tile_quantities.length).to eq 94
     end
   end
 
   describe "#tiles_remaining" do
     it " returns the number of tiles remaining in the bag" do
-      expect(@tilebag1.tiles_remaining).to eq 94
+      expect(@tilebag2.tiles_remaining).to eq 94
     end
   end
 
