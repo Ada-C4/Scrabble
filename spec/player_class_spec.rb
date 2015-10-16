@@ -95,6 +95,9 @@ describe Scrabble::Player do
       it "should reject a non-word" do
         expect(Scrabble::Dictionary.word_in_dictionary("ZZZZ")).to be_falsey
       end
+      it "should not reject a valid word" do
+        expect(Scrabble::Dictionary.word_in_dictionary("APPLE")).to be_truthy
+      end
 
     end
 end

@@ -1,12 +1,11 @@
 module Scrabble
   class Dictionary
     def self.word_in_dictionary(guess)
-      d = open("./lib/dictionary.txt", "r")
-      d.each_line do |line|
-        if guess != line
-          return false
-        end
-      d.close
+      open("./lib/dictionary.txt", "r")
+      if File.open("./lib/dictionary.txt").each_line.any?{|line| line.include?(guess)}
+        return true
+      else
+        return false
       end
     end
   end
