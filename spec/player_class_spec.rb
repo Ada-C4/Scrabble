@@ -7,6 +7,8 @@ require './lib/scrabble_class.rb'
 describe Scrabble::Player do
 
     before :each do # (Before each thing I do, create a new player)
+      @bag = Scrabble::TileBag.new
+      @bag.draw_tiles(3)
       @player1 = Scrabble::Player.new("Logan")
     end
 
@@ -73,16 +75,17 @@ describe Scrabble::Player do
     end
 
     describe "tiles" do
-      before :each do
-        @bag = Scrabble::TileBag.new
-        @bag.draw_tiles(3)
-        @player1 = Scrabble::Player.new("Logan")
-      end
       it "returns an array of letters" do
         expect(@player1.tiles(@bag)).to be_an Array
       end
       it "array of letters is less than or equal to 7" do
         expect(@player1.tiles(@bag).length).to be <= 7
+      end
+    end
+    describe "draw_tiles" do
+      it "fills the total number of tiles avaliable to 7"do
+        @player1.draw_tiles(@bag)
+        expect(@player1.tiles(@bag).length).to be == 7
       end
     end
 
