@@ -76,4 +76,15 @@ describe Scrabble::Player do
       expect(@player.highest_word_score).to eq 19
     end
   end
+  describe "#tiles" do
+    it "returns an empty array of tiles at the beginning of the game" do
+      expect(@player.tiles).to eq []
+    end
+  end
+  describe "#draw_tiles(tile_bag)" do
+    it "adds 7 tiles to the players tiles array" do
+      @tilebag = Scrabble::TileBag.new
+      expect(@player.draw_tiles(@tilebag).length).to eq 7
+    end
+  end
 end

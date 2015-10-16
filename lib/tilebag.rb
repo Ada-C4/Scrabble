@@ -1,10 +1,10 @@
 module Scrabble
   class TileBag
 
-    attr_reader :tiles
+    attr_reader :tile_bag
 
     def initialize
-      @tiles = create_new_tile_bag
+      @tile_bag = create_new_tile_bag
     end
 
     def create_new_tile_bag
@@ -13,11 +13,11 @@ module Scrabble
     end
 
     def draw_tiles(num)
-      @tiles.pop(num)
+      @tile_bag.pop(num)
     end
 
     def tiles_remaining
-      @tiles.length
+      @tile_bag.length
     end
   end
 end

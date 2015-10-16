@@ -1,10 +1,16 @@
 module Scrabble
   class Player
-    attr_reader :name, :plays
+    attr_reader :name, :plays, :tiles
 
     def initialize(name)
       @name = name
       @plays = []
+      @tiles = []
+    end
+
+    def draw_tiles(tile_bag)
+      number = 7 - @tiles.length
+      tile_bag.draw_tiles(number)
     end
 
     def play(word)

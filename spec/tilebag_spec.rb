@@ -11,7 +11,7 @@ describe Scrabble::TileBag do
   end
   describe "#initialize" do
     it "creates a new tile bag full of 98 tiles" do
-      expect(@tilebag.tiles.length).to eq 98
+      expect(@tilebag.tile_bag.length).to eq 98
     end
   end
   describe "#draw_tiles(num)" do
@@ -20,7 +20,7 @@ describe Scrabble::TileBag do
     end
     it "returns 2 random tiles as an array and subtracts those tiles from the tilebag" do
       expect(@tilebag.draw_tiles(2).length).to eq 2
-      expect(@tilebag.tiles.length).to eq 96
+      expect(@tilebag.tile_bag.length).to eq 96
     end
   end
   describe "#tiles_remaining" do
