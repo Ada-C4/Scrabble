@@ -9,7 +9,7 @@ class Player
   def initialize(name)
     @name = name
     @player_words =[]
-    @bag = nil
+    #@bag = nil
     @tile_tray = []
   end
 
@@ -47,17 +47,19 @@ class Player
     return high_word
   end
 
+#returns the score of the returned word of highest_scoring_word method
   def highest_word_score
     return Scrabble.score(highest_scoring_word)
   end
 
-  def draw_tiles(tile_bag)
-    @bag = tile_bag
-    new_player_tiles = @bag.draw_tiles(7-@tile_tray.length)
+#draws new tiles for the player based on TileBag draw_tiles method. This method requires a parameter, which will be a TileBag instance. We then set that tilebag instance equal to a variable and call Tilebags draw_tiles method on it. The parameter for that method is the difference between 7 (the max number of tiles a player can have) and the tile_tray, or how many tiles they already have. This returns new tiles from the Tilebag method, which we then push onto the player's tile tray and flatten into one array.
+  def draw_tiles(tile_bag = TileBag.new)
+    new_player_tiles = tile_bag.draw_tiles(7-@tile_tray.length)
     @tile_tray.push(new_player_tiles)
     return @tile_tray.flatten!
   end
 
+#returns everything in the tile_tray of the player
   def tiles
     return @tile_tray
   end
