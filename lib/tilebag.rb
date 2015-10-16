@@ -56,13 +56,20 @@ module Scrabble
         letters_array.push(@quantity.keys.shuffle.pop)
         end
 
-        letters_array.each do |letter|
-          quantity.find
+# remove the letters above from the hash
 
+        letters_array.each do |letter|
+          @quantity[letter] -= 1
         end
 
       return letters_array
 
     end
+
+    def tiles_remaining
+      sum = @quantity.values.inject(0) {|sum, value| sum + value}
+      sum
+    end
+
   end
 end
