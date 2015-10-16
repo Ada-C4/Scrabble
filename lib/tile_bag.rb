@@ -45,12 +45,12 @@ class TileBag
   end
 
   def draw_tiles(num)
-    #@tile_tray = []
+    new_tiles = []
     num.times do
       random_num = rand(0..@tile_bag.length)
-      tile_tray.push(@tile_bag[random_num])
+      new_tiles.push(@tile_bag[random_num])
       @tile_bag.delete_at(random_num)
     end
-    return tile_tray
+    return new_tiles
   end
 end
