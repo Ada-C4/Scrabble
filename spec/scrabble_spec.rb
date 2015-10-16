@@ -42,5 +42,5 @@ describe Scrabble do
     it "call that index on word_array" do
     expect(@scrabble.highest_word_score("aei, b, e")).to eq " b"
     end
-  end
+  end  
 end
