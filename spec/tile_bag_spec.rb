@@ -7,7 +7,6 @@ describe TileBag do
 
   describe '@default_tiles' do
     it "selects 7 random tiles" do
-      @default_tiles
       expect(@tile_bag).to eq ['b', "b", "a"]
     end
   end
@@ -15,6 +14,12 @@ describe TileBag do
   describe "gives us 3 tiles" do
     it "returns random tiles" do
       expect(@tile_bag.draw_tiles(3)).to eq ['b', "b", "a"]
+    end
+  end
+
+  describe "subtracts tiles from our bag" do
+    it "subtracts tiles" do
+      expect(@tile_bag).to eq ['b', "b", "a"]
     end
   end
 end
