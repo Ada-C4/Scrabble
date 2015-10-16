@@ -17,10 +17,8 @@ module Scrabble
     end
 
     def play(word)
-      all_char = true
-      word.each_char do |char|
-        all_char &&= ('a'..'z').include?(char.downcase)
-      end
+      # Check to see if all letters in word are a-z
+      all_char = word.split("").inject(true) { |all, char| all && ('a'..'z').include?(char.downcase) }
       if won? || all_char == false
         return false
       end
