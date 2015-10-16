@@ -1,5 +1,6 @@
 require 'pry'
 require "./lib/scrabble.rb"
+require "./lib/tile_bag"
 
 class Player
   attr_accessor :name, :player_words
@@ -7,11 +8,9 @@ class Player
   def initialize(name)
     @name = name
     @player_words =[]
+    @bag = nil
+    @tile_tray = []
   end
-
-  # def name
-  #   return @name
-  # end
 
   def plays
     return @player_words
@@ -43,6 +42,15 @@ class Player
 
   def highest_word_score
     return Scrabble.score(highest_scoring_word)
+  end
+
+  def assign_bag_to_player(tile_bag)
+    @bag = tile_bag
+  end
+
+  def tiles
+    @bag.draw_tiles(7-@bag.tile_tray.length)
+    return @bag.tile_tray
   end
 
 end
