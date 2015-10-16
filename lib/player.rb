@@ -17,9 +17,14 @@ module Scrabble
       if won?
         return false
       else
-        # this is an enumerable to remove tiles played from @tiles
-        @tiles.reject! { |i| word.include?(i) }
-        @plays.push(word)
+        found_tiles = @tiles.find_all {|l| word.include?(l)}
+        if found_tiles.size == word.size
+          # this is an enumerable to remove tiles played from @tiles
+          @tiles.reject! { |i| word.include?(i) }
+          @plays.push(word)
+        else
+          raise ArgumentError
+        end
       end
     end
 
@@ -47,5 +52,12 @@ module Scrabble
     def highest_word_score
       Scrabble.score(highest_scoring_word) if @plays.size != 0
     end
+
+    def create_mock(options)
+      @name = options[:name] || @name
+      @tiles = options[:tiles] || @tiles
+      @plays = options[:plays] || @plays
+    end
+
   end
 end
