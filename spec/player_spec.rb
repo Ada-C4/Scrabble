@@ -92,23 +92,29 @@ describe Scrabble do
       end
     end
 
-    describe "#tiles" do
+    describe "#player_tiles" do
       it "returns a collection of tiles that the player can play" do
-        expect(@player.tiles.length).to eq(0)
-        expect(@player.tiles).to be_an(Array)
+        expect(@player.player_tiles.length).to eq(0)
+        expect(@player.player_tiles).to be_an(Array)
       end
     end
 
     describe "#draw_tiles(tile_bag)" do
+      before :all do
+        @playerJ = Scrabble::Player.new("J")
+        @playerJ.player_tiles = ["d", "o", "g"]
+        @playerJ.draw_tiles(@tilebag)
+      end
       it "removes the correct number of letters from the tile bag" do
-
+        # checks to see how many tiles the player has
+        # draws that number from the bag
+        expect(@tilebag.tiles.length).to eq(94)
       end
       it "adds the correct number of tiles to the player's tiles array" do
-
+        # now the player should have 7 tiles
+        expect(@playerJ.player_tiles.length).to eq(7)
       end
-      it "removes the same letters from the bag that are added to the player's collection" do
 
-      end
     end
 
 

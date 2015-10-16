@@ -2,7 +2,8 @@ require "./lib/scrabble.rb"
 require "./lib/tilebag.rb"
 module Scrabble
   class Player
-    attr_reader :name, :plays, :highest_scoring_word, :tiles
+    attr_reader :name, :plays, :highest_scoring_word
+    attr_accessor :player_tiles
 
     def initialize(name)
       if name.class != String
@@ -13,7 +14,7 @@ module Scrabble
       end
       @plays = []
       @highest_scoring_word = ""
-      @tiles = []
+      @player_tiles = []
     end
 
     def play(word)
@@ -50,6 +51,12 @@ module Scrabble
       else
         Scrabble.score(@highest_scoring_word)
       end
+    end
+
+    def draw_tiles(tile_bag)
+      tile_number = 7 - @player_tiles.length
+      drawn = tile_bag.draw_tiles(tile_number)
+      @player_tiles += drawn
     end
 
   end
