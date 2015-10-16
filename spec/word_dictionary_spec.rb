@@ -20,5 +20,9 @@ describe Dictionary do
     it "doesn't find made up words in the dictionary" do
       expect(@dictionary.check_word('gobblygoock')).to eq false
     end
+
+    it "doesn't allow words with capital letters" do
+      expect(@dictionary.check_word('Aaron')).to eq false
+    end
   end
 end

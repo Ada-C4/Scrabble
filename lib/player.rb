@@ -1,4 +1,3 @@
-require 'pry'
 require "./lib/scrabble.rb"
 require "./lib/tile_bag"
 
@@ -44,7 +43,7 @@ class Player
     return Scrabble.score(highest_scoring_word)
   end
 
-  def draw_tiles(tile_bag)
+  def draw_tiles(tile_bag=TileBag.new)
     @bag = tile_bag
     new_player_tiles = @bag.draw_tiles(7-@tile_tray.length)
     @tile_tray.push(new_player_tiles)
