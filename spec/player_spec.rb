@@ -38,7 +38,7 @@ describe Scrabble::Player do
     it "adds the input word to the plays array" do
       expect(@player2.plays).to eq ["love", "toast", "hand"]
     end
-    it "returns false is player has already won" do
+    it "returns false if player has already won" do
       expect(@player3.play("word")).to eq false
     end
   end
