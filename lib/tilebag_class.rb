@@ -6,7 +6,7 @@ require "./lib/player_class.rb"
 module Scrabble
   class TileBag
 
-    attr_accessor :avaliable_tiles_array
+    attr_accessor :avaliable_tiles_array, :player_tiles
 
   # - `self.new` creates an instance with a collection of default tiles
   def initialize
@@ -16,10 +16,17 @@ module Scrabble
   def draw_tiles(num)
     # returns n number of random tiles
     # removes the tiles from the default set
+    @player_tiles = []
+    num.times do
+      letter = @avaliable_tiles_array[rand(@avaliable_tiles_array.length)]
+      @player_tiles.push(letter)
+      @avaliable_tiles_array.slice!(@avaliable_tiles_array.index(letter))
+    end
   end
 
-  # - `#tiles_remaining` returns the number of tiles remaining in the bag
   def tiles_remaining
+  # - `#tiles_remaining` returns the number of tiles remaining in the bag
+    return @avaliable_tiles_array.length
   end
 
   end #TileBag class

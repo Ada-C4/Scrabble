@@ -33,11 +33,5 @@ describe Scrabble::TileBag do
       expect(@bag.avaliable_tiles_array.length).to eq (@count - 5)
     end
   end
-#
-#   describe "tiles_remaining" do
-#     it "returns the number of tiles remaining in the bag" do
-#       expect()
-#     end
-#   end
-#
+
 end #describe Scrabble::TileBag do
