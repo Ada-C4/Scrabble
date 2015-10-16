@@ -6,7 +6,6 @@ DEFAULT_TILES = {A: 9, B: 2, C: 2, D: 4, E: 12, F: 2, G: 3, H: 2, I: 9, J: 1, K:
       @tile_quantities = DEFAULT_TILES.dup
     end
     def draw_tiles(num)
-      p @tile_quantities
       drawn_tiles = []
       if num > self.tiles_remaining
         puts "Not enough tiles to pull #{num} tiles!"
@@ -20,7 +19,6 @@ DEFAULT_TILES = {A: 9, B: 2, C: 2, D: 4, E: 12, F: 2, G: 3, H: 2, I: 9, J: 1, K:
               @tile_quantities.delete(rand_letter)
             end
             key_array = @tile_quantities.keys
-            p drawn_tiles
           end
       end
       return drawn_tiles
