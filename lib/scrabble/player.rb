@@ -1,4 +1,4 @@
-require "scrabble.rb"
+require "./lib/scrabble_module"
 module Scrabble
   class Player
     attr_reader :name, :total_score

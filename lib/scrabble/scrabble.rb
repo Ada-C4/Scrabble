@@ -1,4 +1,4 @@
-#require "player.rb"
+require "./lib/scrabble_module"
 module Scrabble
   class Scrabble
 

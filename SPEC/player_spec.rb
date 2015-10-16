@@ -1,4 +1,4 @@
-require "./lib/player.rb"
+require "./lib/scrabble_module"
 
 describe Scrabble::Player do
   before :each do

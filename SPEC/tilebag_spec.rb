@@ -1,4 +1,4 @@
-require "./lib/tilebag.rb"
+require "./lib/scrabble_module"
 
 describe Scrabble::TileBag do
   before :each do
