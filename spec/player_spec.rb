@@ -103,7 +103,7 @@ describe Scrabble do
       it "removes the correct number of letters from the tile bag" do
 
       end
-      it "adds the correct number of tiles to the player's tiles array"
+      it "adds the correct number of tiles to the player's tiles array" do
 
       end
       it "removes the same letters from the bag that are added to the player's collection" do
