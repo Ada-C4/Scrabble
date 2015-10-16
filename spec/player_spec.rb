@@ -79,6 +79,28 @@ describe ScrabbleMod do
         @player.plays = ["cat","dog","mouse"]
         expect(@player.highest_word_score).to eq 7
       end
+
+      describe "#tiles" do
+        it "returns an array" do
+          expect(@player.tiles).to be_kind_of(Array)
+        end
+        it "has no more than seven items in the array" do
+          expect(@player.tiles.length).to be <= 7
+        end
+      end
+
+      describe "#draw_tiles(tilebag)" do
+        before :each do
+          @tilebag = ScrabbleMod::TileBag.new
+        end
+        it "returns an array" do
+          expect(@player.draw_tiles(@tilebag)).to be_kind_of(Array)
+        end
+        it "has no more than seven items in the array" do
+          expect(@player.draw_tiles(@tilebag).length).to be <= 7
+        end
+      end
+      
     end
   end
 end
