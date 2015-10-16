@@ -53,4 +53,8 @@ class TileBag
     end
     return new_tiles
   end
+
+  def tiles_remaining
+    return @tile_bag.length
+  end
 end

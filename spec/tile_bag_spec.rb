@@ -46,4 +46,11 @@ describe TileBag do
       expect(@tile_barf.draw_tiles(1)).not_to eq [nil]
     end
   end
+
+  describe "tiles_remaining" do
+    it "returns the number of tiles remaining in the tile_bag" do
+      @tile_barf.draw_tiles(7)
+      expect(@tile_barf.tiles_remaining).to eq 91
+    end
+  end
 end

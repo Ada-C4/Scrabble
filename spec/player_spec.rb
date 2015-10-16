@@ -84,12 +84,19 @@ describe Player do
     end
   end
 
-  describe "#tiles" do
+  describe "#draw_tiles" do
     it "returns a collection of letters for the player" do
-      @ada.assign_bag_to_player(TileBag.new)
-      expect(@ada.tiles.length).to eq 7
+      expect(@ada.draw_tiles(TileBag.new).length).to eq 7
     end
   end
+
+  describe "#tiles" do
+    it "returns values in the tile_tray" do
+      @ada.tile_tray = ["A", "B", "C", "D", "E", "F", "G"]
+      expect(@ada.tiles).to eq ["A", "B", "C", "D", "E", "F", "G"]
+    end
+  end
+
 
 
 end

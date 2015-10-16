@@ -3,7 +3,7 @@ require "./lib/scrabble.rb"
 require "./lib/tile_bag"
 
 class Player
-  attr_accessor :name, :player_words
+  attr_accessor :name, :player_words, :tile_tray
 
   def initialize(name)
     @name = name
@@ -44,14 +44,15 @@ class Player
     return Scrabble.score(highest_scoring_word)
   end
 
-  def assign_bag_to_player(tile_bag)
+  def draw_tiles(tile_bag)
     @bag = tile_bag
-  end
-
-  def tiles
     new_player_tiles = @bag.draw_tiles(7-@tile_tray.length)
     @tile_tray.push(new_player_tiles)
     return @tile_tray.flatten!
+  end
+
+  def tiles
+    return @tile_tray
   end
 
 end
