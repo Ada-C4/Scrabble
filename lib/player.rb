@@ -55,7 +55,7 @@ module Scrabble
 
     def draw_tiles(tile_bag)
       if tile_bag.class != TileBag
-        puts "Error: Incorrect parameter type. Must be a TileBag object."
+        #puts "Error: Incorrect parameter type. Must be a TileBag object."
         return nil
       else
         tile_number = 7 - @player_tiles.length
