@@ -7,6 +7,7 @@ module ScrabbleMod
       @name = name
       @plays = []
       @won = false
+      @player_tiles = []
     end
 
     def name
@@ -50,5 +51,24 @@ module ScrabbleMod
       highest_scoring_word = ScrabbleMod::Scrabble.highest_score_from(@plays)
       return ScrabbleMod::Scrabble.score(highest_scoring_word)
     end
+
+    def tiles
+      return @player_tiles
+    end
+
+    def draw_tiles(tile_bag)
+      while @player_tiles.length < 7
+        tile = tile_bag.draw_tiles(1)
+        @player_tiles.push(tile[0])
+      end
+      return @player_tiles
+    end
   end
 end
+
+# tilebag = ScrabbleMod::TileBag.new
+# play = ScrabbleMod::Player.new("me")
+# you = ScrabbleMod::Player.new("you")
+#
+# me.draw_tiles(tilebag)
+# you.draw_tiles(tilebag)

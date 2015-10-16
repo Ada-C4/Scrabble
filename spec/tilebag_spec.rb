@@ -40,5 +40,6 @@ describe ScrabbleMod do
         expect(@tilebag.tiles_remaining).to eq @tilebag.total_tiles
       end
     end
+
   end
 end
