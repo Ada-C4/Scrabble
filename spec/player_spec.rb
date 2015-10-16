@@ -9,7 +9,7 @@ describe Scrabble::Player do
     @player2.play("love") # love = 7
     @player2.play("toast") # toast = 5
     @player2.play("hand") # hand = 8
-    @player3.total = 101
+    @player3.play("zzzzzzzzzzz") # = 110
   end
 
   describe ".new" do
@@ -58,7 +58,7 @@ describe Scrabble::Player do
       expect(@player2.won?).to eq false
     end
     it "returns false if player does not have over 100 points" do
-      @player4.total = 100
+      @player4.play("zzzzzzzzzz")
       expect(@player4.won?).to eq false
     end
   end

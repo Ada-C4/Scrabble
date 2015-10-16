@@ -15,6 +15,5 @@ S S T T T T T T U U U U V V W W X Y Y Z}
       drawn_tiles = @tile_quantities.pop(num)
       return drawn_tiles
     end
-    
   end
 end

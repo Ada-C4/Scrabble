@@ -1,11 +1,11 @@
 module Scrabble
   class Player
     attr_reader :name, :plays
-    attr_accessor :total
+
     def initialize(name)
       @name = name
       @plays = []
-      @total = 0
+
     end
 
     def play(word)
@@ -17,10 +17,11 @@ module Scrabble
     end
 
     def total_score
+      total = 0
       @plays.each do |word|
-        @total += Scrabble.score(word)
+        total += Scrabble.score(word)
       end
-      return @total
+      return total
     end
 
     def highest_scoring_word
@@ -32,7 +33,7 @@ module Scrabble
     end
 
     def won?
-      @total > 100
+      total_score > 100
     end
 
   end
