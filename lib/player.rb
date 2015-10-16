@@ -40,7 +40,7 @@ module Scrabble
 
     def draw_tiles(tile_bag)
       @bag = tile_bag
-      until @tiles.length == 7
+      until @tiles.length == 7 do
         drawn_tile = @bag.draw_tiles(1)
         @tiles.push(drawn_tile)
       end

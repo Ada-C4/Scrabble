@@ -4,6 +4,7 @@ describe Scrabble::TileBag do
   before :each do
     @tilebag1 = Scrabble::TileBag.new
     @tilebag2 = Scrabble::TileBag.new
+    @tilebag2.draw_tiles(4)
   end
 
   describe "#initialize" do
@@ -20,7 +21,7 @@ describe Scrabble::TileBag do
     it "returns the specifed number of random tiles" do
       expect(@tilebag2.draw_tiles(4).length).to eq 4
     end
-    it "removes the tiles from the default set" do
+    it "Removes the tiles from the default set" do
       expect(@tilebag2.tile_quantities.length).to eq 94
     end
   end
