@@ -1,4 +1,7 @@
 require './lib/player_class.rb'
+require './lib/tilebag_class.rb'
+require './lib/scrabble_class.rb'
+
 
 # minimum of 11 specs
 describe Scrabble::Player do
@@ -66,6 +69,20 @@ describe Scrabble::Player do
         @player1.play("ZEBRA")
         @player1.play("QUIZ")
         expect(@player1.highest_word_score).to eq 22
+      end
+    end
+
+    describe "tiles" do
+      before :each do
+        @bag = Scrabble::TileBag.new
+        @bag.draw_tiles(3)
+        @player1 = Scrabble::Player.new("Logan")
+      end
+      it "returns an array of letters" do
+        expect(@player1.tiles(@bag)).to be_an Array
+      end
+      it "array of letters is less than or equal to 7" do
+        expect(@player1.tiles(@bag).length).to be <= 7
       end
     end
 

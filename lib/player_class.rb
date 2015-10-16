@@ -1,4 +1,5 @@
 require "./lib/scrabble_class.rb"
+require "./lib/tilebag_class.rb"
 
 module Scrabble
   class Player
@@ -57,13 +58,13 @@ module Scrabble
 
     # and add to the `Player` class the following instance methods:
 
-    def tiles
-
+    def tiles(bag)
+      return bag.total_player_tiles
     end
     # - `#tiles` a collection of letters that the player can play (max 7)
 
     def draw_tiles(tile_bag)
-
+      tile_bag.draw_tiles(7)
     end
     # - `#draw_tiles(tile_bag)` fills tiles array until it has 7 letters from the given tile bag
 
