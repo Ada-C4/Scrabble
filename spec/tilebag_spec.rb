@@ -1,4 +1,5 @@
 require "./lib/TileBag"
+require 'pry'
 describe Scrabble::TileBag do
   before :each do
     @tilebag = Scrabble::TileBag.new
@@ -26,7 +27,7 @@ describe Scrabble::TileBag do
   describe "#tiles_remaining" do
     it "returns the number of tiles remaining in the bag" do
       @tilebag.draw_tiles(10)
-      expect(@tilebag.tiles_remaining).to eq 80
+      expect(@tilebag.tiles_remaining).to eq 88
     end
   end
 end

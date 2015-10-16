@@ -3,7 +3,7 @@ DEFAULT_TILES = {A: 9, B: 2, C: 2, D: 4, E: 12, F: 2, G: 3, H: 2, I: 9, J: 1, K:
   class TileBag
    attr_reader :tile_quantities
     def initialize
-      @tile_quantities = DEFAULT_TILES
+      @tile_quantities = DEFAULT_TILES.dup
     end
     def draw_tiles(num)
       p @tile_quantities
