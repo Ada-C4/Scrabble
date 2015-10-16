@@ -1,5 +1,3 @@
-# require 'pry'
-
 module Scrabble
 
   class ScrabbleGame
@@ -39,22 +37,15 @@ module Scrabble
 
       letters.each do |letter|
         word_score += value[letter]
-          end
+      end
 
-      letter_length = letters.length
-          if letter_length == 8
+          if letters.length == 8
           word_score += 50
+          puts "BONUS! You used all seven letters! You get 50 extra points!"
           end
-
-      # if letters.length = 8
-      #   word_score += 50
-      # end
 
       return word_score
     end
-
-# newgame = Scrabble::ScrabbleGame.new("words")
-# newgame.score("hello")
 
   end
 end
