@@ -17,6 +17,8 @@ module Scrabble
       if won?
         return false
       else
+        # this is an enumerable to remove tiles played from @tiles
+        @tiles.reject! { |i| word.include?(i) }
         @plays.push(word)
       end
     end
