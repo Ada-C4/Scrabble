@@ -39,8 +39,8 @@ module Scrabble
       return highest_pair[1]
     end
     def draw_tiles(tile_bag)
-      
-      tile_bag.draw_tiles(7).each do |element|
+      length = @tiles.length
+      tile_bag.draw_tiles(7-length).each do |element|
         @tiles.push(element)
       end
     end

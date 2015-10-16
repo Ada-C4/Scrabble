@@ -9,10 +9,7 @@ module Scrabble
     end
     def self.score(word)
       value_array = self.make_value_array(word)
-      score = 0
-      value_array.each do |value|
-        score += value
-      end
+      score = value_array.inject {|sum, item| sum + item}
       if word.length == 7
         return score + 50
       else

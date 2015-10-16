@@ -74,5 +74,10 @@ describe Scrabble::Player do
       @player.draw_tiles(@tilebag)
       expect(@player.tiles.length).to eq 7
     end
+    it "does not allow tiles array to exceed a length of 7" do
+      @player.draw_tiles(@tilebag)
+      @player.draw_tiles(@tilebag)
+      expect(@player.tiles.length).to eq 7
+    end
   end
 end

@@ -20,6 +20,7 @@ describe Scrabble::Scrabble do
       expect(Scrabble::Scrabble.make_value_array(@word)).to eq [3, 1, 1]
     end
   end
+
   describe ".self.score(word)" do
     it "totals the elements of the array" do
       expect(Scrabble::Scrabble.score(@word)).to eq 5
