@@ -43,6 +43,10 @@ describe Scrabble::Player do
       @player.create_mock({tiles: %w(O R A N G E P)})
       expect{ @player.play("oranges") }.to raise_error(ArgumentError)
     end
+    it "will accept a word even if there is a duplicates in the tiles array" do
+      @player.create_mock({tiles: %w(W O R D D O O)})
+      expect(@player.play("word")).to eq ["WORD"]
+    end
   end
   describe "#total_score" do
     it "sums up and returns the total score of the players words" do
