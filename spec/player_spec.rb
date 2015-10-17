@@ -41,7 +41,7 @@ describe Scrabble::Player do
     end
     it "gives an error if try to play a word without the appropriate tiles" do
       @player.create_mock({tiles: %w(O R A N G E P)})
-      expect{ @player.play("oranges") }.to raise_error(ArgumentError)
+      expect(@player.play("oranges")).to be_nil
     end
     it "will accept a word even if there is a duplicates in the tiles array" do
       @player.create_mock({tiles: %w(W O R D D O O)})

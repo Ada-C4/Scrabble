@@ -1,6 +1,7 @@
 module Scrabble
   class Player
-    attr_reader :name, :plays, :tiles
+    attr_reader :name, :plays, :valid_word
+    attr_accessor :tiles
 
     def initialize(name)
       @name = name
@@ -18,16 +19,16 @@ module Scrabble
       if won?
         return false
       else
-        #this is broken if there are double letters in the tile array
-        #try making a copy of @tiles, remove instead of find all,
-        #next take  7 - that new array.length
-        found_tiles = @tiles.find_all {|l| word.include?(l)}
-        if found_tiles.size == word.size
-          # this is an enumerable to remove tiles played from @tiles
-          @tiles.reject! { |i| word.include?(i) }
+        word_in_array = word.split("")
+        remaining_tiles = @tiles.dup
+
+        word_in_array.each do |l|
+          remaining_tiles.slice!(remaining_tiles.index(l)) if remaining_tiles.include?(l)
+        end
+
+        if 7 - remaining_tiles.size == word.size
+          @tiles = remaining_tiles
           @plays.push(word)
-        else
-          raise ArgumentError
         end
       end
     end

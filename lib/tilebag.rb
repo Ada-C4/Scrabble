@@ -1,7 +1,7 @@
 module Scrabble
   class TileBag
 
-    attr_reader :tile_bag
+    attr_accessor :tile_bag
 
     def initialize
       @tile_bag = (?A*9 + ?B*2 + ?C*2 + ?D*4 + ?E*12 + ?F*2 + ?G*3 + ?H*2 + ?I*9 + ?J +
@@ -10,6 +10,10 @@ module Scrabble
     end
 
     def draw_tiles(num)
+      if @tile_bag.empty?
+        puts "The tile bag is empty. Better luck next time."
+        exit
+      end
       @tile_bag.pop(num)
     end
 
