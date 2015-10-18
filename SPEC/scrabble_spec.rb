@@ -1,4 +1,4 @@
-require "./lib/scrabble.rb"
+require "./lib/scrabble_module"
 
 describe Scrabble::Scrabble do
 

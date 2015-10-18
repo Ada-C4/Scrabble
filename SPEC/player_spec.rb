@@ -1,4 +1,4 @@
-require "./lib/player.rb"
+require "./lib/scrabble_module"
 
 describe Scrabble::Player do
   before :each do
@@ -69,17 +69,6 @@ describe Scrabble::Player do
 
   describe "highest_scoring_word" do
     before :each do
-      @player.play("star")
-      @player.play("suns")
-      @player.play("dog")
-    end
-    it "returns dog as the highest scoring word when star, suns, dog are played" do
-      expect(@player.highest_scoring_word).to eq "dog"
-    end
-  end
-
-  describe "highest_scoring_word" do
-    before :each do
       @player.play("zoo")
       @player.play("ffff")
       @player.play("kite")
@@ -88,6 +77,17 @@ describe Scrabble::Player do
       expect(@player.highest_scoring_word).to eq "ffff"
     end
   end
+
+  describe "highest word score" do
+  before :each do
+    @player.play("star")
+    @player.play("suns")
+    @player.play("dog")
+  end
+  it "returns 5" do
+    expect(@player.highest_word_score).to eq 5
+  end
+end
 
   describe "highest_word_score" do
     before :each do
@@ -99,4 +99,21 @@ describe Scrabble::Player do
       expect(@player.highest_word_score).to eq 16
     end
   end
+
+  describe "tiles and draw_tiles(tile_bag)" do
+    before :each do
+      @tile_bag = Scrabble::TileBag.new
+    end
+    it "fills tiles array to 7 letters when tile array is empty" do
+      @player.draw_tiles(@tile_bag)
+      expect(@player.tiles.length).to eq 7
+    end
+    it "adds 5 tiles to tile array when tile array has 2 letters" do
+      @player.tiles.push("a")
+      @player.tiles.push("p")
+      @player.draw_tiles(@tile_bag)
+      expect(@player.tiles.length).to eq 7
+    end
+  end
+
 end
