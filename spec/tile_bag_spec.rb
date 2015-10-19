@@ -1,5 +1,5 @@
+require "spec_helper"
 require './lib/tile_bag.rb'
-require 'pry'
 
 describe TileBag do
   before :each do

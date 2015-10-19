@@ -1,3 +1,4 @@
+require "spec_helper"
 require './lib/word_dictionary.rb'
 
 describe Dictionary do
