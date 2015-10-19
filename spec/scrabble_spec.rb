@@ -68,5 +68,13 @@ describe Scrabble do
       @array2 = [@guess_word3, @guess_word2, @guess_word4, @guess_word5, @guess_word]
       expect(Scrabble.highest_score_from(@array2)).to eq @guess_word5
     end
+
+    it "returns a 7 letter word if one is played" do
+      @guess_word1 = "zzzzzx"
+      @quess_word2 = "jjjjjj"
+      @guess_word_7_letters = "dragons"
+      @array = [@guess_word1, @guess_word2, @guess_word_7_letters]
+      expect(Scrabble.highest_score_from(@array)).to eq @guess_word_7_letters
+    end
   end
 end
