@@ -1,10 +1,12 @@
 require "./lib/player.rb"
 require "./lib/scrabble.rb"
+require "./lib/tilebag.rb"
 
 describe Scrabble do
   describe Scrabble::Player do
     before :each do
       @player = Scrabble::Player.new("Jenn")
+      @tilebag = Scrabble::TileBag.new
     end
 
     describe ".new(name)" do
@@ -90,6 +92,36 @@ describe Scrabble do
       end
     end
 
+    describe "#player_tiles" do
+      it "returns a collection of tiles that the player can play" do
+        expect(@player.player_tiles.length).to eq(0)
+        expect(@player.player_tiles).to be_an(Array)
+      end
+    end
+
+    describe "#draw_tiles(tile_bag)" do
+      before :all do
+        @playerJ = Scrabble::Player.new("J")
+        @tilebag2 = Scrabble::TileBag.new
+        @playerJ.player_tiles = ["d", "o", "g"]
+        @playerJ.draw_tiles(@tilebag2)
+      end
+      it "removes the correct number of letters from the tile bag" do
+        # checks to see how many tiles the player has
+        # draws that number from the bag
+        expect(@tilebag2.tiles.length).to eq(94)
+      end
+      it "adds the correct number of tiles to the player's tiles array" do
+        # now the player should have 7 tiles
+        expect(@playerJ.player_tiles.length).to eq(7)
+      end
+
+      it "only accepts the tilebag object as a parameter" do
+        expect(@playerJ.draw_tiles(4)).to be_nil
+        expect(@playerJ.draw_tiles("hello")).to be_nil
+      end
+
+    end
 
 
   end
