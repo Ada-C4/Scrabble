@@ -1,3 +1,4 @@
+require "spec_helper"
 require "./lib/scrabble_master"
 
 describe Scrabble::TileBag do

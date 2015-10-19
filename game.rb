@@ -1,9 +1,10 @@
-require 'pry'
+require "./lib/scrabble_master"
 
 def play_scrabble
   tilebag = Scrabble::TileBag.new
   puts "~~~~Welcome to Anagram Land!~~~~\n\n"
   puts "The following commands are valid: 'pass', 'discard-tiles'."
+  puts "The game ends when a player reaches 100 points!"
 
   puts "How many players are there?"
   print " > "
@@ -14,7 +15,7 @@ def play_scrabble
   if num_players.to_i.to_s == num_players && num_players.to_i > 0
     num_players = num_players.to_i
     tilebag.tile_bag * num_players
-    
+
     num_players.to_i.times do |i|
       puts "What is the name of player #{i + 1}?" if num_players > 1
       puts "What is your name?" if num_players == 1
@@ -69,5 +70,6 @@ def play_scrabble
       end
     end
   end
-
 end
+
+play_scrabble
