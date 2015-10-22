@@ -1,8 +1,11 @@
 require "./lib/player"
+require "./lib/TileBag"
+require 'pry'
 describe Scrabble::Player do
   before :each do
     @player = Scrabble::Player.new("Charles")
     @word = "cat"
+    @tilebag = Scrabble::TileBag.new
   end
   describe ".self.new(name)" do
     it "creates a new instance" do
@@ -59,6 +62,22 @@ describe Scrabble::Player do
     it "Returns the highest_scoring_word score." do
       @player.plays = ["cat", "dog", "zebra"]
       expect(@player.highest_word_score).to eq 16
+    end
+  end
+  describe "#tiles" do
+    it "returns a collection of letters that the player can play (max 7)" do
+      expect(@player.tiles).to eq []
+    end
+  end
+  describe "#draw_tiles(tile_bag)" do
+    it "fills tiles array until it has 7 letters from the given tile bag" do
+      @player.draw_tiles(@tilebag)
+      expect(@player.tiles.length).to eq 7
+    end
+    it "does not allow tiles array to exceed a length of 7" do
+      @player.draw_tiles(@tilebag)
+      @player.draw_tiles(@tilebag)
+      expect(@player.tiles.length).to eq 7
     end
   end
 end

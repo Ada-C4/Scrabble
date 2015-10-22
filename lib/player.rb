@@ -1,10 +1,11 @@
 module Scrabble
   class Player
-    attr_reader :name
+    attr_reader :name, :tiles
     attr_accessor :plays
     def initialize(name)
       @name = name
       @plays = []
+      @tiles = []
     end
     def play(word)
       if won?
@@ -36,6 +37,12 @@ module Scrabble
         v
       end
       return highest_pair[1]
+    end
+    def draw_tiles(tile_bag)
+      length = @tiles.length
+      tile_bag.draw_tiles(7-length).each do |element|
+        @tiles.push(element)
+      end
     end
   end
 end
