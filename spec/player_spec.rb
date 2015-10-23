@@ -1,3 +1,4 @@
+require "spec_helper"
 require './lib/player.rb'
 
 describe Player do
@@ -83,6 +84,20 @@ describe Player do
       expect(@ada.highest_word_score).to eq 50
     end
   end
+
+  describe "#draw_tiles" do
+    it "returns a collection of letters for the player" do
+      expect(@ada.draw_tiles().length).to eq 7
+    end
+  end
+
+  describe "#tiles" do
+    it "returns values in the tile_tray" do
+      @ada.tile_tray = ["A", "B", "C", "D", "E", "F", "G"]
+      expect(@ada.tiles).to eq ["A", "B", "C", "D", "E", "F", "G"]
+    end
+  end
+
 
 
 end
