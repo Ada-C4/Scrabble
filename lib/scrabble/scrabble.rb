@@ -9,8 +9,9 @@ module Scrabble
       8 => ["j", "x"],
       10 => ["q", "z"]
     }
+
     def self.score(word)
-      if word[/^[a-zA-Z]+/] != word
+      if (word[/^[a-zA-Z]+/] != word) || !(Dictionary.valid_word?(word)) #Check if it only has letters AND is a valid word
         return "That is not a valid word."
       elsif word.length > 7
         return "Cannot have more than seven letters."
@@ -25,9 +26,9 @@ module Scrabble
       end
 
       word_array.each do |character|#can use .each_char method?
-          SCORES_HASH.find_all do |point_value, letter|
-            if letter.include?(character)
-              total_score += point_value
+          SCORES_HASH.find_all do |key, values|
+            if values.include?(character)
+              total_score += key
             end#end for if value.includes? block
           end#end for SCORE_VALUES block
       end#end for word_array.each block
@@ -45,7 +46,7 @@ module Scrabble
       end
 
       best_score = score_hash.values.max
-      high_scores = score_hash.select{|key, value| value == best_score}.keys
+      high_scores = score_hash.select{ |key, value| value == best_score }.keys
 
       if high_scores.length > 1
         high_scores.each do |word|
